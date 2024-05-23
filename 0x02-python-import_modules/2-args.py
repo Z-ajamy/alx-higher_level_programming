@@ -7,6 +7,8 @@ if __name__ == "__main__":
 
     if lenv == 1:
         print("0: argument")
+    elif lenv == 2:
+        print("1: argument")
     else:
         print("{}: arguments".format(lenv - 1))
 
