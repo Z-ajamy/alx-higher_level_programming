@@ -10,7 +10,7 @@ if __name__ == "__main__":
     elif lenv == 1:
         print("1 argument:")
     else:
-        print("{}: arguments:".format(lenv))
+        print("{} arguments:".format(lenv))
 
     for i in range(lenv):
         print("{}: {}".format(i + 1, sys.argv[i + 1]))
