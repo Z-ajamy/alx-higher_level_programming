@@ -7,5 +7,4 @@ def no_c(my_string):
         if i == "c" or i == "C":
             continue
         str = str + i
-    print(str)
     return (str)
