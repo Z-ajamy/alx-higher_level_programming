@@ -6,4 +6,4 @@ def multiple_returns(sentence):
     else:
         First_character = sentence[0]
     tuple_a = (length, First_character)
-    return(tuple_a)
+    return (tuple_a)
