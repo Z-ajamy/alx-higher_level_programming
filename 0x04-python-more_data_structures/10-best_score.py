@@ -3,8 +3,6 @@ def best_score(a_dictionary):
     if a_dictionary:
         length = len(a_dictionary)
         list_of_dict = list(a_dictionary.items())
-        print(list_of_dict)
-        print(list_of_dict[2][1])
         for i in range(length - 1):
             if list_of_dict[i][1] > list_of_dict[i + 1][1]:
                 idx = i
