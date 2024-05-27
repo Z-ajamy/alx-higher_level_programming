@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
     if a_dictionary:
-        length = len(a_dictionary)
-        list_of_dict = list(a_dictionary.items())
-        for i in range(length - 1):
-            if list_of_dict[i][1] > list_of_dict[i + 1][1]:
-                idx = i
-        return list_of_dict[idx][0]
+        greater_val = 0
+        greater_key = ""
+        for key, val in a_dictionary.items():
+            if val > greater_val:
+                greater_val = val
+                greater_key = key
+        return greater_key
