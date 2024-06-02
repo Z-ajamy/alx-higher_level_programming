@@ -10,9 +10,9 @@ def safe_print_list_integers(my_list=[], x=0):
         The number of elements printed.
     """
     count = 0
-    for element in my_list[:x]:
+    for i in range(x):
         try:
-            print('{:d}'.format(element), end='')
+            print('{:d}'.format(my_list[i]), end='')
             count += 1
         except Exception:
             continue
