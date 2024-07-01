@@ -13,6 +13,8 @@ class Square:
             size (int):the size of the Square must be greater or equal zero
         '''
         if isinstance(size, int) and size >= 0:
-            self.size = size
+            self.__size = size
+        elif size >= 0:
+            raise ValueError
         else:
-            raise TabError
+            raise TypeError
