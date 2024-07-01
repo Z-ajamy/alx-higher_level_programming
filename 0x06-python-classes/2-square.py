@@ -12,9 +12,15 @@ class Square:
         Args:
             size (int):the size of the Square must be greater or equal zero
         '''
-        if isinstance(size, int) and size >= 0:
-            self.__size = size
-        elif size >= 0:
-            raise ValueError
-        else:
-            raise TypeError
+        self.size = size
+        @property
+        def size(self):
+            return self.__size
+        @size.setter
+        def size(self, x):
+            if isinstance(x, int) and x >= 0:
+                self.__size = x
+            elif not isinstance(x, int):
+                raise TypeError
+            else:
+                raise ValueError
