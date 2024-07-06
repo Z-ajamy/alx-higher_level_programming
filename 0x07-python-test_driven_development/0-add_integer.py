@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
     Add module
 """
@@ -36,7 +37,11 @@ def add_integer(a, b=98):
         Traceback(most recent call last):
             ...
         ValueError: b must be an integer
-    """
+
+        Handel 0 args.
+        >>> add_integer()
+        98
+        """
     if not isinstance(a, (int, float)):
         raise ValueError("a must be an integer")
     elif not isinstance(b, (int, float)):
