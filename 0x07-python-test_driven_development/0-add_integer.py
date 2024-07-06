@@ -2,18 +2,23 @@
 """
     Add module
 """
+
+
 def add_integer(a, b=98):
     """
         Add functhion that add two numbers and return the result.
 
         Args:
+
             a (int or float) :the first number
             b (int or float) :the second number
-        
+
         Returns:
+
             int : the product of a + b
-        
-        Can hendel integral and float numbers, but it tearn the float to integral.
+
+        Can hendel integral and float numbers, but it tearn
+        the float to integral.
             >>> add_integer(1, 2)
             3
             >>> add_integer(0, 0)
@@ -26,8 +31,7 @@ def add_integer(a, b=98):
             4645452434454324232
             >>> add_integer(5.8, 1.2)
             6
-        
-        
+
         It make type error if a or b was not integral or float.
         >>> add_integer("1", 2)
         Traceback(most recent call last):
