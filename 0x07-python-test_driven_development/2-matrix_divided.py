@@ -37,25 +37,25 @@ def matrix_divided(matrix, div):
     Examples:
         >>> matrix_divided([[1, 2], [3, 4]], 2)
         [[0.5, 1.0], [1.5, 2.0]]
-        
+
         >>> matrix_divided([[1.5, 2.5], [3.5, 4.5]], 1.5)
         [[1.0, 1.67], [2.33, 3.0]]
-        
+
         >>> matrix_divided([[10, 20, 30], [40, 50, 60]], 10)
         [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
-        
+
         >>> matrix_divided([[10, 20, 30], [40, 50, 60]], 0)
         Traceback (most recent call last):
         ZeroDivisionError: division by zero
-        
+
         >>> matrix_divided([[10, 20, 30], [40, 50, 60]], 'a')
         Traceback (most recent call last):
         TypeError: div must be a number
-        
+
         >>> matrix_divided([[1, 2], [3, '4']], 2)
         Traceback (most recent call last):
         TypeError: matrix must be a matrix (list of lists) of integers/floats
-        
+
         >>> matrix_divided([[1, 2], [3, 4, 5]], 2)
         Traceback (most recent call last):
         TypeError: Each row of the matrix must have the same size
