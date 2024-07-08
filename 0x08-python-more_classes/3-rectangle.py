@@ -98,6 +98,10 @@ class Rectangle:
             str: A string depicting the rectangle using '#' symbols.
         """
         result = ''
+
+        if self.height == 0 or self.width == 0:
+            return result
+
         for i in range(self.height):
             for j in range(self.width):
                 result += '#'
