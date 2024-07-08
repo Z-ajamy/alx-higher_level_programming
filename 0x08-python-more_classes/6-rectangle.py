@@ -6,6 +6,7 @@ width and height attributes, methods to calculate its area and perimeter,
 and class attributes to keep track of the number of instances.
 """
 
+
 class Rectangle:
     """Represents a rectangle shape.
 
@@ -116,15 +117,17 @@ class Rectangle:
         """Returns a string representation of the Rectangle object.
 
         Returns:
-            str: A formatted string showing the width and height of the rectangle.
+            str: A formatted string showing the width and height of
+            the rectangle.
         """
         return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
         """Prints a message when a Rectangle object is deleted.
 
-        This method is called when the garbage collector destroys the object. It
-        prints "Bye rectangle..." to indicate that the Rectangle object has been
+        This method is called when the garbage collector destroys the object.
+        It prints "Bye rectangle..." to indicate that the Rectangle object has
+        been
         deleted.
         """
         Rectangle.number_of_instances -= 1
