@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """A module for representing a Rectangle object.
 
-This module includes a class that defines a rectangle with width and height attributes,
+This module includes a class that defines a rectangle with
+width and height attributes,
 and methods to calculate its area and perimeter.
 """
+
 
 class Rectangle:
     """Represents a rectangle shape.
@@ -70,7 +72,7 @@ class Rectangle:
         if not value >= 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-    
+
     def area(self):
         """Calculates the area of the rectangle.
 
