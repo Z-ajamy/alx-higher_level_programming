@@ -11,7 +11,7 @@ Create an instance of BaseGeometry:
 
 .. code-block:: python
 
-    >>> from base_geometry import BaseGeometry
+    >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
     >>> geom = BaseGeometry()
     >>> isinstance(geom, BaseGeometry)
     True
