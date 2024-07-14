@@ -8,11 +8,6 @@ built-in list.
 Classes:
     MyList(list): A custom list class that adds additional functionality
     to the standard list.
-
-Usage:
-    >>> mylist = MyList([3, 1, 2])
-    >>> mylist.print_sorted()
-    [1, 2, 3]
 """
 
 
@@ -29,3 +24,9 @@ class MyList(list):
     def print_sorted(self):
         """Prints the elements of the list in sorted order."""
         print(sorted(self))
+
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testfile("tests/1-my_list.txt")
