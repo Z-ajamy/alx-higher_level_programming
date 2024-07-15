@@ -46,6 +46,16 @@ Non-integer input:
         ...
     TypeError: age must be an integer
 
+    >>> geom.integer_validator("age")
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+    >>> geom.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
 Non-positive integer:
 
 .. code-block:: python

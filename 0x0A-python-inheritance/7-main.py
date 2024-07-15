@@ -12,7 +12,7 @@ except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
 
 try:
-    bg.integer_validator("age", 0)
+    bg.integer_validator()
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
 
