@@ -17,6 +17,7 @@ Usage:
     obj2 = Base(100)    # Assigns a specific ID
 """
 
+
 class Base:
     """Base class for object management.
 
@@ -31,7 +32,8 @@ class Base:
         """Initializes a Base object with an optional ID.
 
         Args:
-            id (int or None): ID to assign to the object. If None, assigns a new
+            id (int or None): ID to assign to the object. If None,
+            assigns a new
                 incremented value of __nb_objects.
         """
         if id is None:
