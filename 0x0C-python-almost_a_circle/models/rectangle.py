@@ -4,8 +4,8 @@ Module: rectangle
 
 This module defines a Rectangle class that inherits from the Base class.
 
-The Rectangle class includes attributes for width, height, x, and y coordinates
-,and an ID inherited from the Base class. It also includes property methods for
+The Rectangle class includes attributes for width, height, x, and y coordinates,
+and an ID inherited from the Base class. It also includes property methods for
 attribute validation, an area method to calculate the area of the rectangle,
 a display method to print the rectangle using the '#' character, and a static
 method __the_shape to create a string representation of a rectangle shape.
@@ -187,3 +187,31 @@ class Rectangle(Base):
                     self.y,
                     self.width,
                     self.height)
+
+    def update(self, *args):
+        """Updates the attributes of the Rectangle object based on positional
+        arguments.
+
+        Args:
+            *args: Variable length argument list.
+                - If one argument is passed, it updates the id attribute.
+                - If two arguments are passed, it updates the id and width
+                  attributes.
+                - If three arguments are passed, it updates the id, width, and
+                  height attributes.
+                - If four arguments are passed, it updates the id, width, height,
+                  and x attributes.
+                - If five arguments are passed, it updates all attributes:
+                  id, width, height, x, and y.
+        """
+        if args is not None:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) >= 5:
+                self.y = args[4]
