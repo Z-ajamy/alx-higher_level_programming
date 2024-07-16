@@ -41,7 +41,7 @@ class Student:
         Returns:
             dict: A dictionary representation of the object attributes.
         """
-        if attrs is None or not isinstance(attrs, list) or attrs == [] and \
+        if attrs is None or type(attrs) is not list or attrs == [] and \
                 not all(type(ele) == str for ele in attrs):
             return self.__dict__
         else:
