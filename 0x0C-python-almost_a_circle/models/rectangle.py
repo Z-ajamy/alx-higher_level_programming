@@ -4,10 +4,11 @@ Module: rectangle
 
 This module defines a Rectangle class that inherits from the Base class.
 
-The Rectangle class includes attributes for width, height, x, and y
-    coordinates,
-and an ID inherited from the Base class. It also includes property methods
-    for attribute validation.
+The Rectangle class includes attributes for width, height, x, and y coordinates
+,and an ID inherited from the Base class. It also includes property methods for
+attribute validation, an area method to calculate the area of the rectangle,
+a display method to print the rectangle using the '#' character, and a static
+method __the_shape to create a string representation of a rectangle shape.
 
 Classes:
     Rectangle: Represents a rectangle shape.
@@ -141,15 +142,45 @@ class Rectangle(Base):
         """
         return self.width * self.height
 
+    @staticmethod
+    def __the_shape(height, width):
+        """Static method to create a string representation of a rectangle
+            shape.
+
+        Args:
+            height (int): The height of the rectangle.
+            width (int): The width of the rectangle.
+
+        Returns:
+            str: The string representation of the rectangle shape.
+        """
+        shape = ''
+        for i in range(height):
+            for n in range(width):
+                shape += "#"
+            if i < height - 1:
+                shape += '\n'
+        return shape
+
     def display(self):
         """Prints the rectangle using the '#' character."""
+        shape = ''
+        for y in range(self.y):
+            shape += '\n'
         for i in range(self.height):
+            shape += ' ' * self.x
             for n in range(self.width):
-                print("#", end='')
-            if i < self.height:
-                print()
+                shape += "#"
+            if i < self.height - 1:
+                shape += '\n'
+        print(shape)
 
     def __str__(self):
+        """Returns a string representation of the Rectangle object.
+
+        Returns:
+            str: The string representation of the Rectangle object.
+        """
         return "[Rectangle] ({}) {}/{} - {}/{}"\
             .format(self.id,
                     self.x,
