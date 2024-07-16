@@ -4,15 +4,18 @@ Module: rectangle
 
 This module defines a Rectangle class that inherits from the Base class.
 
-The Rectangle class includes attributes for width, height, x, and y coordinates,
-and an ID inherited from the Base class. It also includes property methods for 
-attribute validation.
+The Rectangle class includes attributes for width, height, x, and y
+    coordinates,
+and an ID inherited from the Base class. It also includes property methods
+    for attribute validation.
 
 Classes:
     Rectangle: Represents a rectangle shape.
 """
 
+
 from models.base import Base
+
 
 class Rectangle(Base):
     """Represents a rectangle shape, inherits from Base.
@@ -33,8 +36,8 @@ class Rectangle(Base):
             height (int): The height of the rectangle.
             x (int): The x-coordinate of the rectangle. Defaults to 0.
             y (int): The y-coordinate of the rectangle. Defaults to 0.
-            id (int or None): ID to assign to the object. If None, assigns a new
-                incremented value of __nb_objects from Base class.
+            id (int or None): ID to assign to the object. If None, assigns a
+                new incremented value of __nb_objects from Base class.
         """
         self.width = width
         self.height = height
