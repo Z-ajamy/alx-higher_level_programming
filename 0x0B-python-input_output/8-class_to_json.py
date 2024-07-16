@@ -7,9 +7,6 @@ instance's attributes to a JSON string.
 """
 
 
-import json
-
-
 def class_to_json(obj):
     """Converts a class instance's attributes to a JSON string.
 
@@ -20,4 +17,4 @@ def class_to_json(obj):
         str: A JSON string representation of the object's
         attributes.
     """
-    return json.dumps(obj.__dict__)
+    return (obj.__dict__)
