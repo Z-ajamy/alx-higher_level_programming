@@ -4,18 +4,15 @@ Module: rectangle
 
 This module defines a Rectangle class that inherits from the Base class.
 
-The Rectangle class includes attributes for width, height, x, and y
-coordinates,
-and an ID inherited from the Base class. It also includes property methods for
+The Rectangle class includes attributes for width, height, x, and y coordinates,
+and an ID inherited from the Base class. It also includes property methods for 
 attribute validation.
 
 Classes:
     Rectangle: Represents a rectangle shape.
 """
 
-
 from models.base import Base
-
 
 class Rectangle(Base):
     """Represents a rectangle shape, inherits from Base.
@@ -36,8 +33,8 @@ class Rectangle(Base):
             height (int): The height of the rectangle.
             x (int): The x-coordinate of the rectangle. Defaults to 0.
             y (int): The y-coordinate of the rectangle. Defaults to 0.
-            id (int or None): ID to assign to the object. If None, assigns a
-                newincremented value of __nb_objects from Base class.
+            id (int or None): ID to assign to the object. If None, assigns a new
+                incremented value of __nb_objects from Base class.
         """
         self.width = width
         self.height = height
@@ -56,7 +53,15 @@ class Rectangle(Base):
 
         Args:
             width (int): The width value to set.
+
+        Raises:
+            TypeError: If width is not an integer.
+            ValueError: If width is not greater than 0.
         """
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width <= 0:
+            raise ValueError("width must be > 0")
         self.__width = width
 
     @property
@@ -70,7 +75,15 @@ class Rectangle(Base):
 
         Args:
             height (int): The height value to set.
+
+        Raises:
+            TypeError: If height is not an integer.
+            ValueError: If height is not greater than 0.
         """
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height <= 0:
+            raise ValueError("height must be > 0")
         self.__height = height
 
     @property
@@ -84,7 +97,15 @@ class Rectangle(Base):
 
         Args:
             x (int): The x-coordinate value to set.
+
+        Raises:
+            TypeError: If x is not an integer.
+            ValueError: If x is less than 0.
         """
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        if x < 0:
+            raise ValueError("x must be >= 0")
         self.__x = x
 
     @property
@@ -98,5 +119,13 @@ class Rectangle(Base):
 
         Args:
             y (int): The y-coordinate value to set.
+
+        Raises:
+            TypeError: If y is not an integer.
+            ValueError: If y is less than 0.
         """
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        if y < 0:
+            raise ValueError("y must be >= 0")
         self.__y = y
