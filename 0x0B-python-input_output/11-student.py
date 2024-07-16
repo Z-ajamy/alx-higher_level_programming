@@ -60,4 +60,4 @@ class Student:
             json (dict): A dictionary representing the new attribute values.
         """
         for k, v in json:
-            setattr(self, k, json[v])
+            setattr(self, k, v)
