@@ -54,5 +54,10 @@ class Student:
             return dict
 
     def reload_from_json(self, json):
-        for i in json:
-            getattr(self, i, json[i])
+        """Replaces all attributes of the Student instance using a JSON object.
+
+        Args:
+            json (dict): A dictionary representing the new attribute values.
+        """
+        for k, v in json:
+            setattr(self, k, json[v])
