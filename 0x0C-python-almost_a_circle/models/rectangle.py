@@ -4,7 +4,7 @@ Module: rectangle
 
 This module defines a Rectangle class that inherits from the Base class.
 
-The Rectangle class includes attributes for width, height, x, and y coordinates,
+The Rectangle class includes attributes for width, height, x, and y coordinates
 and an ID inherited from the Base class. It also includes property methods for
 attribute validation, an area method to calculate the area of the rectangle,
 a display method to print the rectangle using the '#' character, and a static
@@ -199,7 +199,8 @@ class Rectangle(Base):
                   attributes.
                 - If three arguments are passed, it updates the id, width, and
                   height attributes.
-                - If four arguments are passed, it updates the id, width, height,
+                - If four arguments are passed, it updates the id, width,
+                    height,
                   and x attributes.
                 - If five arguments are passed, it updates all attributes:
                   id, width, height, x, and y.
