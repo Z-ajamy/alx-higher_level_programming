@@ -59,5 +59,5 @@ class Student:
         Args:
             json (dict): A dictionary representing the new attribute values.
         """
-        for k, v in json:
+        for k, v in json.items():
             setattr(self, k, v)
