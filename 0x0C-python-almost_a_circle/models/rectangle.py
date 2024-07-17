@@ -144,7 +144,8 @@ class Rectangle(Base):
 
     @staticmethod
     def __the_shape(height, width):
-        """Static method to create a string representation of a rectangle shape.
+        """Static method to create a string representation of a rectangle
+            shape.
 
         Args:
             height (int): The height of the rectangle.
@@ -193,18 +194,23 @@ class Rectangle(Base):
         Args:
             *args: Variable length argument list.
                 - If one argument is passed, it updates the id attribute.
-                - If two arguments are passed, it updates the id and width attributes.
-                - If three arguments are passed, it updates the id, width, and height attributes.
-                - If four arguments are passed, it updates the id, width, height, and x attributes.
-                - If five arguments are passed, it updates all attributes: id, width, height, x, and y.
-            **kwargs: Arbitrary keyword arguments to update specific attributes.
+                - If two arguments are passed, it updates the id and
+                    width attributes.
+                - If three arguments are passed, it updates the id, width,
+                    and height attributes.
+                - If four arguments are passed, it updates the id, width,
+                    height, and x attributes.
+                - If five arguments are passed, it updates all attributes:
+                    id, width, height, x, and y.
+            **kwargs: Arbitrary keyword arguments to update specific
+                attributes.
         """
         if args:
             attributes = ['id', 'width', 'height', 'x', 'y']
             for i, value in enumerate(args):
                 if i < len(attributes):
                     setattr(self, attributes[i], value)
-        
+
         if kwargs:
             for key, value in kwargs.items():
                 if hasattr(self, key):
