@@ -56,5 +56,7 @@ class Base:
             str: The JSON string representation of the list
                 of dictionaries.
         """
+        if not list_dictionaries or list_dictionaries == []:
+            return '[]'
         import json
         return json.dumps(list_dictionaries)
