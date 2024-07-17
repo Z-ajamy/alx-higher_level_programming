@@ -19,6 +19,9 @@ Usage:
 """
 
 
+import json
+
+
 class Base:
     """Base class for object management.
 
@@ -58,5 +61,4 @@ class Base:
         """
         if not list_dictionaries or list_dictionaries == []:
             return '[]'
-        import json
         return json.dumps(list_dictionaries)
