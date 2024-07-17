@@ -14,7 +14,6 @@ Classes:
     Rectangle: Represents a rectangle shape.
 """
 
-
 from models.base import Base
 
 
@@ -174,6 +173,20 @@ class Rectangle(Base):
             if i < self.height - 1:
                 shape += '\n'
         print(shape)
+
+    def to_dictionary(self):
+        """Returns the dictionary representation of the Rectangle object.
+
+        Returns:
+            dict: Dictionary representation of the Rectangle object.
+        """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
 
     def __str__(self):
         """Returns a string representation of the Rectangle object.
