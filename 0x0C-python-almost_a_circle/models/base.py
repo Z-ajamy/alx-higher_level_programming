@@ -23,8 +23,9 @@ class Base:
     """Base class for object management.
 
     Attributes:
-        __nb_objects (int): Private class attribute to keep track of the number
-            of instances created or assigned with an ID.
+        __nb_objects (int): Private class attribute to keep
+            track of the number of instances created or
+                assigned with an ID.
     """
 
     __nb_objects = 0
@@ -33,8 +34,8 @@ class Base:
         """Initializes a Base object with an optional ID.
 
         Args:
-            id (int or None): ID to assign to the object. If None,
-            assigns a new
+            id (int or None): ID to assign to the object.
+                If None, assigns a new
                 incremented value of __nb_objects.
         """
         if id is None:
@@ -43,3 +44,17 @@ class Base:
         else:
             self.id = id
             self.__nb_objects = self.id
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Converts a list of dictionaries to a JSON string.
+
+        Args:
+            list_dictionaries (list): A list of dictionaries.
+
+        Returns:
+            str: The JSON string representation of the list
+                of dictionaries.
+        """
+        import json
+        return json.dumps(list_dictionaries)
