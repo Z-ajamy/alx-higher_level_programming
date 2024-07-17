@@ -59,6 +59,6 @@ class Base:
             str: The JSON string representation of the list
                 of dictionaries.
         """
-        if not list_dictionaries or list_dictionaries == []:
-            return '[]'
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
         return json.dumps(list_dictionaries)
