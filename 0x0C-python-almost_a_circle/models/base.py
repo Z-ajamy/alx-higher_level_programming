@@ -59,13 +59,6 @@ class Base:
             str: The JSON string representation of the list
                 of dictionaries.
         """
-        if not list_dictionaries or list_dictionaries == []:
-            return '[]'
-
-        filtered_list = []
-        for dictionary in list_dictionaries:
-            if 'width' in dictionary and 'height' in dictionary:
-                filtered_list.append(dictionary)
-            elif 'size' in dictionary:
-                filtered_list.append(dictionary)
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
         return json.dumps(list_dictionaries)
