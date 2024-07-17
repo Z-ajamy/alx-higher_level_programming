@@ -63,9 +63,12 @@ class Square(Rectangle):
         Args:
             *args: Variable length argument list.
                 - If one argument is passed, it updates the size attribute.
-                - If two arguments are passed, it updates the size and x attributes.
-                - If three arguments are passed, it updates the size, x, and y attributes.
-                - If four arguments are passed, it updates the size, x, y, and id attributes.
+                - If two arguments are passed, it updates the size
+                    and x attributes.
+                - If three arguments are passed, it updates the size, x,
+                    and y attributes.
+                - If four arguments are passed, it updates the size, x, y, and
+                    id attributes.
             **kwargs: Arbitrary keyword arguments for named attribute updates.
         """
         if args:
