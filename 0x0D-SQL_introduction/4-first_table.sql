@@ -3,9 +3,9 @@
 
 -- Create a table named 'first_table' with two columns: 'id' and 'name'.
 -- The IF NOT EXISTS clause prevents an error from occurring if the table already exists.
-CREATE TABLE IF NOT EXISTS first_table (
-    id INT,                    -- 'id' column to store integer values
-    name VARCHAR(256)          -- 'name' column to store variable-length strings up to 256 characters
+CREATE TABLE IF NOT EXISTS `first_table` (
+    `id` INT,                    -- 'id' column to store integer values
+    `name` VARCHAR(256)          -- 'name' column to store variable-length strings up to 256 characters
 );
 
 -- Explanation:
