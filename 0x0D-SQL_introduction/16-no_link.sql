@@ -5,7 +5,7 @@
 -- Retrieve the 'score' and 'name' columns from the 'second_table'
 -- Filter the rows where the 'name' column is not an empty string
 -- Order the results by the 'name' column in ascending order
-SELECT score, name FROM second_table WHERE name != "" ORDER BY name;
+SELECT score, name FROM second_table WHERE name != "" ORDER BY name ASC;
 
 -- Explanation:
 -- 1. SELECT score, name: Specifies the columns to retrieve.
@@ -15,22 +15,22 @@ SELECT score, name FROM second_table WHERE name != "" ORDER BY name;
 -- 3. WHERE name != "": Adds a condition to filter the rows.
 --    - Only the rows where the 'name' column is not an empty string will be included in the result set.
 --    - The != operator checks for inequality, meaning it will exclude rows where 'name' is exactly an empty string.
--- 4. ORDER BY name: Sorts the retrieved rows by the 'name' column in ascending order (A to Z).
---    - By default, the ORDER BY clause sorts in ascending order. To sort in descending order, use 'ORDER BY name DESC'.
+-- 4. ORDER BY name ASC: Sorts the retrieved rows by the 'name' column in ascending order (A to Z).
+--    - The ASC keyword explicitly specifies ascending order. By default, ORDER BY sorts in ascending order, so ASC is optional but can be used for clarity.
 
 -- Usage:
 -- This command is useful for retrieving specific columns from a table while filtering out rows that do not meet a certain condition and sorting the results.
 -- It helps in data analysis by excluding rows with empty values in the 'name' column and presenting the results in a sorted manner.
 
 -- Example output:
--- The command returns a result set with the 'score' and 'name' columns for rows where 'name' is not an empty string, ordered by 'name'.
+-- The command returns a result set with the 'score' and 'name' columns for rows where 'name' is not an empty string, ordered by 'name' in ascending order.
 -- Example:
 -- +-------+--------+
 -- | score | name   |
 -- +-------+--------+
--- |     2 | Alex   |
--- |     8 | Bob    |
+-- |     3 | Alex   |
+-- |    14 | Bob    |
+-- |     8 | George |
 -- |    10 | John   |
--- |    12 | Steve  |
 -- +-------+--------+
 -- Each row represents a unique combination of score and name, excluding rows with an empty name, sorted by the name in ascending order.
