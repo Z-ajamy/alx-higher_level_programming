@@ -1,51 +1,60 @@
 #!/usr/bin/node
 
 /**
- * Module: movie_title_fetcher
+ * Module: wedge_antilles_movie_counter
  *
- * This module fetches and prints the title of a movie from the Star Wars API
- * based on a movie ID provided as a command-line argument. It uses the `request`
- * module to make an HTTP request to the Star Wars API.
+ * This module counts and prints the number of movies featuring Wedge Antilles from
+ * the Star Wars API. The API URL is provided as a command-line argument. It uses
+ * the `request` module to make HTTP requests to the API.
  *
  * Usage:
- *   node movie_title_fetcher.js <movie_id>
+ *   node wedge_antilles_movie_counter.js <api_url>
  *
- * Where `<movie_id>` is the ID of the movie whose title you want to fetch.
+ * Where `<api_url>` is the URL endpoint to fetch the list of films.
  */
 
 const request = require('request');
-const movieId = process.argv[2]; // Get the movie ID from command-line arguments
+const apiUrl = process.argv[2]; // Get the API URL from command-line arguments
+const wedgeAntillesId = 18; // Wedge Antilles character ID
 
 /**
- * Fetches and prints the title of a movie by its ID.
+ * Counts and prints the number of movies featuring Wedge Antilles.
  *
- * This function constructs the URL using the provided movie ID and makes an
- * HTTP request to the Star Wars API. If an error occurs during the request, 
- * it logs the error to the console. Otherwise, it parses the JSON response 
- * and prints the movie title.
+ * This function makes an HTTP request to the specified API URL. It parses the JSON
+ * response to extract the list of films and checks each film to see if Wedge Antilles
+ * (identified by his character ID) is listed in the film's character list. It then
+ * prints the count of such films.
  *
  * Args:
- *   id (string): The ID of the movie whose title is to be fetched.
+ *   url (string): The API URL to fetch the list of films.
  *
  * Returns:
  *   void
  */
-const getMovieTitle = (id) => {
-  const url = `https://swapi-api.alx-tools.com/api/films/${id}/`;
-  
+const countMoviesWithCharacter = (url) => {
   request(url, (error, response, body) => {
     if (error) {
       console.error(error); // Print the error object if an error occurs
     } else {
       const data = JSON.parse(body); // Parse the JSON response
-      console.log(data.title); // Print the movie title
+      const films = data.results; // Get the list of films
+      let count = 0; // Initialize the count of movies
+
+      // Loop through each film to check if Wedge Antilles is in the characters list
+      films.forEach((film) => {
+        if (film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${wedgeAntillesId}/`)) {
+          count++;
+        }
+      });
+
+      console.log(count); // Print the count of movies featuring Wedge Antilles
     }
   });
 };
 
-// Ensure the movie ID argument is provided
-if (movieId) {
-  getMovieTitle(movieId);
+// Ensure the API URL argument is provided
+if (apiUrl) {
+  countMoviesWithCharacter(apiUrl);
 } else {
-  console.error('No movie ID provided');
+  console.error('No API URL provided');
 }
