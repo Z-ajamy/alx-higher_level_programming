@@ -3,7 +3,7 @@
 -- The FLUSH PRIVILEGES statement is used to reload the grant tables to ensure that the changes take effect immediately.
 
 -- Create the user 'user_0d_2' connecting from 'localhost' with the specified password
-CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
+CREATE USER IF NOT EXISTS user_0d_2@localhost IDENTIFIED BY 'user_0d_1_pwd';
 
 -- Explanation:
 -- 1. CREATE USER IF NOT EXISTS: Creates a new user if the user does not already exist.
