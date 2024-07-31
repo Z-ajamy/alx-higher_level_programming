@@ -13,8 +13,7 @@ CREATE USER IF NOT EXISTS user_0d_2@localhost IDENTIFIED BY 'user_0d_1_pwd';
 
 -- Grant all privileges on all databases and tables to the user 'user_0d_2' connecting from 'localhost'
 -- and allow the user to grant these privileges to other users
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_2'@'localhost' WITH GRANT OPTION;
-
+GRANT ALL PRIVILEGES ON * . * TO 'user_0d_2'@'localhost' WITH GRANT OPTION;
 -- Explanation:
 -- 1. GRANT ALL PRIVILEGES: Grants all available privileges.
 -- 2. ON *.*: Specifies that the privileges apply to all databases and tables.
