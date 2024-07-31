@@ -12,13 +12,15 @@ CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
 -- This command is useful for creating a new user account with a specified username, host, and password.
 
 -- Grant all privileges on all databases and tables to the user 'user_0d_2' connecting from 'localhost'
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_2'@'localhost';
+-- and allow the user to grant these privileges to other users
+GRANT ALL PRIVILEGES ON *.* TO 'user_0d_2'@'localhost' WITH GRANT OPTION;
 
 -- Explanation:
 -- 1. GRANT ALL PRIVILEGES: Grants all available privileges.
 -- 2. ON *.*: Specifies that the privileges apply to all databases and tables.
 -- 3. TO 'user_0d_2'@'localhost': Specifies the user to whom the privileges are granted.
--- This command is useful for granting a user full access to all databases and tables.
+-- 4. WITH GRANT OPTION: Allows the user to grant these privileges to other users.
+-- This command is useful for granting a user full access to all databases and tables and enabling them to grant these privileges to other users.
 
 -- Reload the grant tables to ensure that the changes take effect immediately
 FLUSH PRIVILEGES;
