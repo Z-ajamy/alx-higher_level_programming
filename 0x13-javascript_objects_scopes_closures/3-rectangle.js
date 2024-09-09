@@ -9,12 +9,11 @@ class Rectangle {
 
   print () {
     let shap = '';
-    let i;
-    for (i = 0; i < this.height; i++) {
+    for (let i = 0; i < this.height; i++) {
       for (let j = 0; j < this.width; j++) {
         shap += 'X';
       }
-      if (i < this.width) {
+      if (i < this.height - 1) {
         shap += '\n';
       }
     }
