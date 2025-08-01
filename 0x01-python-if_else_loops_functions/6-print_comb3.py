@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-for i in range(0, 10):
-    for j in range(i, 10):
-        print("{}{}".format(i, j), sep="", end="")
-        if i != 9 or j != 9:
-            print(" ,", end="")
+for i in range(0, 9):
+    for j in range(i + 1, 10):
+        print("{}{}, ".format(i, j), sep="", end="")
 else:
-    print()
+    print("99")
