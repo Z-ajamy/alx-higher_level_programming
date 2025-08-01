@@ -12,4 +12,3 @@ def fizzbuzz():
             print("Buzz ", end="")
             continue
         print(i, end=" ")
-
