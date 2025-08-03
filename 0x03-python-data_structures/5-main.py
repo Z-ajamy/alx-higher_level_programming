@@ -1,6 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 no_c = __import__('5-no_c').no_c
 
-print(no_c("Best School"))
-print(no_c("Chicago"))
-print(no_c("C is fun!"))
+word = "HellcCcccooccoscccss"
+new_word = no_c(word)
+
+print(new_word)
+print(word)
