@@ -23,7 +23,7 @@ class Square:
         25
     """
     
-    def __init__(self, size):
+    def __init__(self, size=0):
         """Initialize a new Square instance with validation.
         
         Creates a square object with the specified size after validating that
