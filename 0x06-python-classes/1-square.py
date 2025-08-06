@@ -14,13 +14,13 @@ class Square:
     
     Attributes:
         __size (int or float): The private size/side length of the square.
-        
+
     Example:
         >>> square = Square(5)
         >>> isinstance(square, Square)
         True
     """
-    
+
     def __init__(self, size):
         """Initialize a new Square instance.
         
@@ -29,10 +29,11 @@ class Square:
         
         Args:
             size (int or float): The side length of the square.
-            
+
         Example:
             >>> square = Square(4)
-            >>> square._Square__size  # Access private attribute (not recommended)
+            >>> square._Square__size  # Access private attribute
+            >>> #(not recommended)
             4
         """
         self.__size = size
