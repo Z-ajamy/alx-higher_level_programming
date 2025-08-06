@@ -13,7 +13,7 @@ class Square:
     
     Attributes:
         None defined yet.
-        
+
     Example:
         >>> square = Square()
         >>> isinstance(square, Square)
