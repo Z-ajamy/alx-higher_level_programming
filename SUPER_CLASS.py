@@ -118,7 +118,7 @@ class SuperObject:
             raise TypeError("Name must be a string")
         if not (1 <= len(value) <= SuperObject.MAX_NAME_LENGTH):
             raise ValueError(f"Name must be 1-{SuperObject.MAX_NAME_LENGTH} characters")
-        if not value.replace(' ', '').replace('-', '').isalpha():
+        if not value.replace(' ', '').replace('-', '').isalnum():
             raise ValueError("Name can only contain letters, spaces, and hyphens")
         self._name = value.strip().title()  # Clean and format
     
@@ -369,7 +369,7 @@ class SuperObject:
             raise TypeError("Can only add another SuperObject")
         
         # Combine names
-        new_name = f"{self.name} & {other.name}"
+        new_name = f"{self.name} and {other.name}"
         # Use average age
         new_age = (self.age + other.age) // 2
         # Combine skills
@@ -674,7 +674,12 @@ def demonstrate_all_concepts():
     print(f"  __call__: {greeting}")
     
     # Boolean conversion
-    empty_person = SuperObject("", 0, None)  # This will fail validation
+    try:
+        empty_person = SuperObject("", 0, None)  # This will fail validation
+        print(f"  __bool__: bool(empty_person) = {bool(empty_person)}")
+    except ValueError as e:
+        print(f"  ✓ Boolean test: Correctly failed to create an empty object. Error: {e}")
+
     # Let's create properly for boolean test
     print(f"  __bool__: bool(person1) = {bool(person1)}")
     
@@ -1316,4 +1321,3 @@ if __name__ == "__main__":
     print("✓ Advanced Usage Patterns")
     print("✓ Testing and Validation")
     print("\nKeep practicing and building amazing Python applications! 🐍")
-    
