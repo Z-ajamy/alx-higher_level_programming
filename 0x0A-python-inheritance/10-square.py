@@ -21,7 +21,7 @@ class Square(Rectangle):
     Attributes:
         size (int): The side length of the square (positive integer).
                    Internally stored as both width and height in the parent Rectangle.
-    
+
     Inherits from:
         Rectangle: Provides width/height validation, area calculation, and string representation.
     """
