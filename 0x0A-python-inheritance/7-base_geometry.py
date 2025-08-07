@@ -33,7 +33,7 @@ class BaseGeometry:
         """
         raise Exception ("area() is not implemented")
     
-    def integer_validator(self, name, value):
+    def integer_validator(self, name="", value=1):
         """
         Validate that a value is a positive integer.
         
