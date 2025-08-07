@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Module for class type comparison utilities.
+"""Module for class type comparison utilities.
 
 This module provides utilities for comparing object types and determining
 exact class matches between objects and class types.
