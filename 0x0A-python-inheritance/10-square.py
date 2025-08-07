@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Module for Square class implementation with alternative inheritance approach.
+"""Module for Square class implementation with alternative inheritance approach.
 
 This module provides a Square class that inherits from Rectangle with
 direct size validation and storage, implementing square-specific
