@@ -120,10 +120,11 @@ class Rectangle:
             str: The string representation of the rectangle.
         """
         s = ""
-        for i in range(self.height):
-            s = s + "#" * self.width
-            if i < self.height - 1:
-                s = s + "\n"
+        if self.width > 0:
+            for i in range(self.height):
+                s = s + "#" * self.width
+                if i < self.height - 1:
+                    s = s + "\n"
         return s
 
     def __str__(self):
@@ -134,8 +135,9 @@ class Rectangle:
             str: A string made up of '#' characters forming the rectangle shape.
         """
         s = ""
-        for i in range(self.height):
-            s = s + "#" * self.width
-            if i < self.height - 1:
-                s = s + "\n"
+        if self.width > 0:
+            for i in range(self.height):
+                s = s + "#" * self.width
+                if i < self.height - 1:
+                    s = s + "\n"
         return s
