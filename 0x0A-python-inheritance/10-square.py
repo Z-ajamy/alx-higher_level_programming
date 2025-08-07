@@ -17,7 +17,7 @@ class Square(Rectangle):
     treating it as a special case where width and height are equal.
     It leverages the Rectangle's validation and functionality while
     simplifying the interface to require only a single size parameter.
-    
+
     Attributes:
         size (int): The side length of the square (positive integer).
                    Internally stored as both width and height in the parent Rectangle.
