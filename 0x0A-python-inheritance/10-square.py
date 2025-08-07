@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-Module for Square class implementation using Rectangle inheritance.
+Module for Square class implementation with alternative inheritance approach.
 
-This module provides a Square class that inherits from Rectangle
-and implements square-specific functionality by treating a square
-as a special case of rectangle with equal width and height.
+This module provides a Square class that inherits from Rectangle with
+direct size validation and storage, implementing square-specific
+functionality with explicit size parameter handling.
 """
 
 Rectangle = __import__('9-rectangle').Rectangle
@@ -14,25 +14,26 @@ class Square(Rectangle):
     A class to represent a square that inherits from Rectangle.
     
     This class implements a square by inheriting from Rectangle and
-    treating it as a special case where width and height are equal.
-    It leverages the Rectangle's validation and functionality while
-    simplifying the interface to require only a single size parameter.
+    performing explicit validation and initialization. It validates
+    the size parameter directly and stores it as a private attribute
+    while also initializing the parent Rectangle with equal dimensions.
     
     Attributes:
         size (int): The side length of the square (positive integer).
-                   Internally stored as both width and height in the parent Rectangle.
     
     Inherits from:
-        Rectangle: Provides width/height validation, area calculation, and string representation.
+        Rectangle: Provides rectangle functionality including area calculation
+                  and string representation methods.
     """
     
     def __init__(self, size):
         """
-        Initialize a new Square instance.
+        Initialize a new Square instance with explicit size validation.
         
-        Creates a square with the specified size by calling the Rectangle
-        constructor with size as both width and height. The size parameter
-        is validated through Rectangle's inherited integer_validator method.
+        Creates a square by first validating the size parameter using
+        the inherited integer_validator method, then initializing the
+        parent Rectangle with equal width and height, and storing the
+        size as a private attribute.
         
         Args:
             size (int): The side length of the square. Must be a positive integer.
@@ -41,7 +42,6 @@ class Square(Rectangle):
             TypeError: If size is not an integer.
             ValueError: If size is less than or equal to 0.
         """
-        
         self.integer_validator("size", size)
-        Rectangle.integer_validator("size", size)
-
+        super().__init__(size, size)
+        self.__size = size
