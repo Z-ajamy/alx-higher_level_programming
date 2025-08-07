@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Module for defining a Rectangle class.
+"""Module for defining a Rectangle class.
 
 This module allows the creation and manipulation of rectangles.
 It supports calculating area, perimeter, and provides string representations.
@@ -9,8 +8,7 @@ It also includes functionality to compare rectangles by area.
 
 
 class Rectangle:
-    """
-    Represents a rectangle with width and height.
+    """Represents a rectangle with width and height.
 
     Attributes:
         number_of_instances (int): The number of Rectangle instances currently active.
