@@ -58,7 +58,7 @@ class BaseGeometry:
             >>> bg.integer_validator("size", "5")
             TypeError: size must be an integer
         """
-        if type(value) is not int:
+        if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         
         if value <= 0:
