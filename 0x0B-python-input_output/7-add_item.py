@@ -1,23 +1,27 @@
 #!/usr/bin/python3
 """
-Script for adding command line arguments to a persistent JSON list.
+Script for managing a persistent JSON list with command line arguments.
 
-This script maintains a persistent list stored in a JSON file. It loads
-existing items from the file (if it exists), adds new command line arguments
-to the list, saves the updated list back to the file, and prints the result.
-The JSON file serves as a persistent storage for accumulating items across
-multiple script executions.
+This script maintains a persistent list stored in a JSON file. It handles
+different scenarios: when no arguments are provided (resets the list to empty),
+and when arguments are provided (adds them to existing items). The script
+loads existing items from the file if it exists, processes command line
+arguments, and saves the updated list back to the file.
 """
 
 if __name__ == "__main__":
     import os
     from sys import argv
     save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-    load_from_json_file = __import__('6-load_from_json_file').load_from_json_file 
+    load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
     
     # Define the path to the JSON file for persistent storage
     path = "add_item.json"
-    
+
+    # If no arguments provided, reset the list to empty
+    if len(argv) == 1:
+        save_to_json_file([], path)
+
     # Load existing list from file if it exists, otherwise start with empty list
     if os.path.exists(path):
         list1 = load_from_json_file(path)
@@ -29,7 +33,4 @@ if __name__ == "__main__":
     
     # Save the updated list back to the JSON file
     save_to_json_file(res, path)
-    
-    # Display the updated list
-    print(res)
     
