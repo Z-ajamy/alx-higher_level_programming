@@ -51,6 +51,5 @@ def append_write(filename="", text=""):
         >>> append_write("empty.txt", "")
         0
     """
-    with open(filename, 'w', encoding="utf-8") as f:
-        f.seek(0, 2)
+    with open(filename, 'a', encoding="utf-8") as f:
         return f.write(text)
