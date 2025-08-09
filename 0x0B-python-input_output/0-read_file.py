@@ -35,4 +35,4 @@ def read_file(filename=""):
         FileNotFoundError: [Errno 2] No such file or directory: ''
     """
     with open(filename, 'r') as f:
-        print(f.read())
+        print(f.read(), end="")
