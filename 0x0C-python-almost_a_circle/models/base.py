@@ -69,10 +69,34 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-        static method 
-        static method static methodstatic method
-        static method static methodstatic method
-        static method 
+        Initialize a new Base instance with ID management.
+        
+        Creates a Base instance with either a provided ID or an automatically
+        assigned unique ID. If no ID is provided, the instance receives an
+        ID based on the current object counter, and the counter is incremented.
+        
+        Args:
+            id (int, optional): A specific ID to assign to the instance.
+                               If None, an auto-generated unique ID will be used.
+                               Defaults to None.
+        
+        Note:
+            When id is provided (truthy), it is used directly without affecting
+            the internal counter. When id is None or falsy, a new unique ID
+            is generated and the internal counter is incremented.
+        
+        Example:
+            >>> obj1 = Base()
+            >>> print(obj1.id)  # 1
+            
+            >>> obj2 = Base()
+            >>> print(obj2.id)  # 2
+            
+            >>> obj3 = Base(10)
+            >>> print(obj3.id)  # 10
+            
+            >>> obj4 = Base()
+            >>> print(obj4.id)  # 3 (counter continues from where it left off)
         """
         if list_dictionaries and isinstance(list_dictionaries, list):
             return json.dumps(list_dictionaries)
