@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import json
 """
 Module for Base class with automatic ID management.
 
@@ -63,3 +64,15 @@ class Base:
         else:
             self.id = Base.__nb_objects + 1
             Base.__nb_objects += 1
+
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        static method 
+        static method static methodstatic method
+        static method static methodstatic method
+        static method 
+        """
+        if list_dictionaries and isinstance(list_dictionaries, list):
+            return json.dumps(list_dictionaries)
