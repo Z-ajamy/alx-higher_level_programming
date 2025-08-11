@@ -80,5 +80,6 @@ class Square(Rectangle):
             TypeError: If val is not an integer.
             ValueError: If val <= 0.
         """
-        self.height = val
         self.width = val
+        self.height = val
+        
