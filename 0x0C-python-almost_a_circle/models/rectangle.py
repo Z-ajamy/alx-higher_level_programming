@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 """
-Module for Rectangle class with automatic ID management and positioning.
+Module for representing and manipulating rectangles.
 
-This module provides a Rectangle class that inherits from Base, combining
-geometric rectangle properties (width, height) with positioning coordinates
-(x, y) and automatic ID management functionality.
+This module provides the Rectangle class, which inherits from the Base class
+and allows the creation and manipulation of rectangle objects. The class
+supports setting dimensions and positions with validation, calculating area,
+displaying a text-based representation, updating attributes dynamically,
+and providing a formatted string representation.
+
+Classes:
+    Rectangle: Represents a geometric rectangle with width, height, and (x, y) position.
 """
 
 from .base import Base
@@ -12,190 +17,167 @@ from .base import Base
 
 class Rectangle(Base):
     """
-    A class to represent a rectangle with position and automatic ID management.
-    
-    This class inherits from Base to gain automatic ID management functionality
-    while implementing rectangle-specific properties including dimensions
-    (width, height) and position coordinates (x, y). All properties are
-    managed through getter and setter methods.
-    
-    Attributes:
-        width (int): The width of the rectangle.
-        height (int): The height of the rectangle.
-        x (int): The x-coordinate position of the rectangle.
-        y (int): The y-coordinate position of the rectangle.
-        id (int): The unique identifier inherited from Base class.
-    
+    Represents a rectangle with width, height, and position coordinates.
+
     Inherits from:
-        Base: Provides automatic ID management functionality.
+        Base: The parent class providing ID management.
+
+    Attributes:
+        width (int): The width of the rectangle (must be > 0).
+        height (int): The height of the rectangle (must be > 0).
+        x (int): The horizontal offset of the rectangle (must be >= 0).
+        y (int): The vertical offset of the rectangle (must be >= 0).
+        id (int): Identifier for the instance, managed by the Base class.
     """
-    
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
-        Initialize a new Rectangle instance.
-        
-        Creates a rectangle with specified dimensions and optional position
-        coordinates. The ID is managed through the parent Base class, either
-        using a provided value or auto-generating a unique one.
-        
+        Initialize a Rectangle instance with the given dimensions and position.
+
         Args:
-            width: The width of the rectangle.
-            height: The height of the rectangle.
-            x (int, optional): The x-coordinate position. Defaults to 0.
-            y (int, optional): The y-coordinate position. Defaults to 0.
-            id (int, optional): A specific ID for the rectangle. If None,
-                               an auto-generated unique ID will be assigned.
-                               Defaults to None.
+            width (int): The width of the rectangle (must be > 0).
+            height (int): The height of the rectangle (must be > 0).
+            x (int, optional): The horizontal offset (must be >= 0). Defaults to 0.
+            y (int, optional): The vertical offset (must be >= 0). Defaults to 0.
+            id (int, optional): The identifier for the rectangle. Defaults to None.
+
+        Raises:
+            TypeError: If any provided argument is not an integer.
+            ValueError: If width or height <= 0, or if x or y < 0.
         """
         self.width = width
         self.height = height
         self.x = x
         self.y = y
         super().__init__(id)
-    
+
     @property
     def width(self):
         """
         Get the width of the rectangle.
-        
+
         Returns:
-            int: The width of the rectangle.
+            int: The current width of the rectangle.
         """
         return self.__width
-    
+
     @width.setter
     def width(self, val):
         """
-        Set the width of the rectangle with validation.
-        
+        Set the width of the rectangle.
+
         Args:
-            val: The new width value for the rectangle.
-        
+            val (int): The new width (must be > 0).
+
         Raises:
             TypeError: If val is not an integer.
-            ValueError: If val is less than or equal to 0.
+            ValueError: If val <= 0.
         """
         if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("width"))
         elif val <= 0:
-            raise ValueError ("{} must be > 0".format("width"))
+            raise ValueError("{} must be > 0".format("width"))
         self.__width = val
 
     @property
     def height(self):
         """
         Get the height of the rectangle.
-        
+
         Returns:
-            int: The height of the rectangle.
+            int: The current height of the rectangle.
         """
         return self.__height
-    
+
     @height.setter
     def height(self, val):
         """
-        Set the height of the rectangle with validation.
-        
+        Set the height of the rectangle.
+
         Args:
-            val: The new height value for the rectangle.
-        
+            val (int): The new height (must be > 0).
+
         Raises:
             TypeError: If val is not an integer.
-            ValueError: If val is less than or equal to 0.
+            ValueError: If val <= 0.
         """
         if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("height"))
         elif val <= 0:
-            raise ValueError ("{} must be > 0".format("height"))
+            raise ValueError("{} must be > 0".format("height"))
         self.__height = val
 
     @property
     def x(self):
         """
-        Get the x-coordinate position of the rectangle.
-        
+        Get the horizontal offset of the rectangle.
+
         Returns:
-            int: The x-coordinate of the rectangle.
+            int: The current horizontal offset.
         """
         return self.__x
-    
+
     @x.setter
     def x(self, val):
         """
-        Set the x-coordinate position of the rectangle with validation.
-        
+        Set the horizontal offset of the rectangle.
+
         Args:
-            val: The new x-coordinate value for the rectangle.
-        
+            val (int): The new horizontal offset (must be >= 0).
+
         Raises:
             TypeError: If val is not an integer.
-            ValueError: If val is less than 0.
+            ValueError: If val < 0.
         """
         if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("x"))
         elif val < 0:
-            raise ValueError ("{} must be >= 0".format("x"))
+            raise ValueError("{} must be >= 0".format("x"))
         self.__x = val
 
     @property
     def y(self):
         """
-        Get the y-coordinate position of the rectangle.
-        
+        Get the vertical offset of the rectangle.
+
         Returns:
-            int: The y-coordinate of the rectangle.
+            int: The current vertical offset.
         """
         return self.__y
-    
+
     @y.setter
     def y(self, val):
         """
-        Set the y-coordinate position of the rectangle with validation.
-        
+        Set the vertical offset of the rectangle.
+
         Args:
-            val: The new y-coordinate value for the rectangle.
-        
+            val (int): The new vertical offset (must be >= 0).
+
         Raises:
             TypeError: If val is not an integer.
-            ValueError: If val is less than 0.
+            ValueError: If val < 0.
         """
         if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("y"))
         elif val < 0:
-            raise ValueError ("{} must be >= 0".format("y"))
+            raise ValueError("{} must be >= 0".format("y"))
         self.__y = val
 
     def area(self):
         """
         Calculate the area of the rectangle.
-        
-        This method computes the area of the rectangle by multiplying
-        its height and width properties.
-        
+
         Returns:
-            int: The area of the rectangle (height * width).
-        
-        Example:
-            >>> rect = Rectangle(5, 3)
-            >>> rect.area()
-            15
+            int: The area, calculated as width * height.
         """
-        return (self.height * self.width)
-    
+        return self.height * self.width
+
     def display(self):
         """
-        Display a visual representation of the rectangle using '#' characters.
-        
-        This method prints the rectangle to stdout using '#' characters.
-        The rectangle is drawn with the specified width and height, but
-        does not account for the x and y position offsets (prints at
-        console position 0, 0).
-        
-        Example:
-            >>> rect = Rectangle(3, 2)
-            >>> rect.display()
-            ###
-            ###
+        Print a text-based representation of the rectangle.
+
+        The rectangle is represented by the '#' character, with vertical
+        and horizontal offsets determined by y and x respectively.
         """
         print("\n" * self.y, end="")
         for i in range(self.height):
@@ -203,51 +185,38 @@ class Rectangle(Base):
 
     def __str__(self):
         """
-        Return the string representation of the rectangle.
-        
-        This method defines how the rectangle object is represented as a
-        string when using str() or print() functions. It displays the
-        rectangle's ID, position coordinates, and dimensions in a formatted
-        string.
-        
+        Return a formatted string representation of the rectangle.
+
+        Format:
+            [Rectangle] (<id>) <x>/<y> - <width>/<height>
+
         Returns:
-            str: A formatted string showing the rectangle's ID, position (x/y),
-                 and dimensions (width/height) in the format:
-                 "[Rectangle] (id) x/y - width/height"
-        
-        Example:
-            >>> rect = Rectangle(5, 3, 2, 1, 10)
-            >>> str(rect)
-            '[Rectangle] (10) 2/1 - 5/3'
-            
-            >>> rect = Rectangle(4, 6)  # auto-assigned ID
-            >>> print(rect)
-            [Rectangle] (1) 0/0 - 4/6
+            str: The formatted string.
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
-    
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
+        )
+
     def update(self, *args, **kwargs):
         """
-        Return the string representation of the rectangle.
-        
-        This method defines how the rectangle object is represented as a
-        string when using str() or print() functions. It displays the
-        rectangle's ID, position coordinates, and dimensions in a formatted
-        string.
-        
-        Returns:
-            str: A formatted string showing the rectangle's ID, position (x/y),
-                 and dimensions (width/height) in the format:
-                 "[Rectangle] (id) x/y - width/height"
-        
+        Update attributes of the rectangle.
+
+        This method can accept positional arguments (*args) or keyword
+        arguments (**kwargs). The order of positional arguments is:
+        id, width, height, x, y.
+
+        Args:
+            *args: Variable length positional arguments.
+                0: id
+                1: width
+                2: height
+                3: x
+                4: y
+            **kwargs: Arbitrary keyword arguments matching attribute names.
+
         Example:
-            >>> rect = Rectangle(5, 3, 2, 1, 10)
-            >>> str(rect)
-            '[Rectangle] (10) 2/1 - 5/3'
-            
-            >>> rect = Rectangle(4, 6)  # auto-assigned ID
-            >>> print(rect)
-            [Rectangle] (1) 0/0 - 4/6
+            r.update(10, 20, 30, 5, 5)
+            r.update(id=10, width=20, height=30, x=5, y=5)
         """
         if args:
             for i in range(len(args)):
