@@ -134,7 +134,7 @@ class Rectangle(Base):
         if type(val) is not int:
             raise TypeError("{} must be an integer".format("x"))
         elif val < 0:
-            raise ValueError ("{} must be > 0".format("x"))
+            raise ValueError ("{} must be >= 0".format("x"))
         self.__x = val
 
     @property
@@ -162,5 +162,5 @@ class Rectangle(Base):
         if type(val) is not int:
             raise TypeError("{} must be an integer".format("y"))
         elif val < 0:
-            raise ValueError ("{} must be > 0".format("y"))
+            raise ValueError ("{} must be >= 0".format("y"))
         self.__x = val
