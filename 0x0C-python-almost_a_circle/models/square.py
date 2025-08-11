@@ -4,8 +4,9 @@ Module for representing and manipulating squares.
 
 This module defines the Square class, which inherits from the Rectangle class
 and represents a special case where the width and height are always equal.
-It supports initialization with size, position offsets, ID management, 
-size property getters/setters, and provides a formatted string representation.
+It supports initialization with size, position offsets, ID management,
+size property getters/setters, updating attributes dynamically, and provides
+a formatted string representation.
 """
 
 from .rectangle import Rectangle
@@ -82,4 +83,40 @@ class Square(Rectangle):
         """
         self.width = val
         self.height = val
-        
+
+    def update(self, *args, **kwargs):
+        """
+        Update attributes of the square.
+
+        Updates can be done either using positional arguments (*args)
+        in the following order:
+            1. id (int)
+            2. size (int)
+            3. x (int)
+            4. y (int)
+
+        Or by using keyword arguments (**kwargs) with matching attribute names.
+
+        Args:
+            *args: Variable-length positional arguments in the order above.
+            **kwargs: Arbitrary keyword arguments mapping attribute names to values.
+
+        Example:
+            square.update(10, 5, 2, 3)
+            square.update(id=10, size=5, x=2, y=3)
+        """
+        if args:
+            for i in range(len(args)):
+                if i == 0:
+                    self.id = args[0]
+                if i == 1:
+                    self.width = args[1]
+                    self.height = args[1]
+                if i == 2:
+                    self.x = args[2]
+                if i == 3:
+                    self.y = args[3]
+        elif kwargs:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
