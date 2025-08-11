@@ -120,11 +120,16 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
-        
+          
     def to_dictionary(self):
-            
-        """
-        Return the  representation.
+        """Convert the square to a dictionary representation.
+        
+        Creates a dictionary containing all the essential attributes of the
+        square for serialization purposes.
+        
+        Returns:
+            dict: A dictionary with keys 'id', 'x', 'size', 'y' and their
+                corresponding values from the square instance.
         """
         dic = {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
         return dic
