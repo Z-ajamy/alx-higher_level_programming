@@ -75,7 +75,7 @@ class Rectangle(Base):
             TypeError: If val is not an integer.
             ValueError: If val is less than or equal to 0.
         """
-        if type(val) is not int:
+        if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("width"))
         elif val <= 0:
             raise ValueError ("{} must be > 0".format("width"))
@@ -103,7 +103,7 @@ class Rectangle(Base):
             TypeError: If val is not an integer.
             ValueError: If val is less than or equal to 0.
         """
-        if type(val) is not int:
+        if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("height"))
         elif val <= 0:
             raise ValueError ("{} must be > 0".format("height"))
@@ -131,7 +131,7 @@ class Rectangle(Base):
             TypeError: If val is not an integer.
             ValueError: If val is less than 0.
         """
-        if type(val) is not int:
+        if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("x"))
         elif val < 0:
             raise ValueError ("{} must be >= 0".format("x"))
@@ -159,8 +159,25 @@ class Rectangle(Base):
             TypeError: If val is not an integer.
             ValueError: If val is less than 0.
         """
-        if type(val) is not int:
+        if not isinstance(val, int):
             raise TypeError("{} must be an integer".format("y"))
         elif val < 0:
             raise ValueError ("{} must be >= 0".format("y"))
         self.__x = val
+
+    def area(self):
+        """
+        Calculate the area of the rectangle.
+        
+        This method computes the area of the rectangle by multiplying
+        its height and width properties.
+        
+        Returns:
+            int: The area of the rectangle (height * width).
+        
+        Example:
+            >>> rect = Rectangle(5, 3)
+            >>> rect.area()
+            15
+        """
+        return (self.height * self.width)
