@@ -225,3 +225,16 @@ class Rectangle(Base):
             [Rectangle] (1) 0/0 - 4/6
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+    
+    def update(self, *args):
+        for i in range(len(args)):
+            if i == 0:
+                self.id = args[0]
+            if i == 1:
+                self.width = args[1]
+            if i == 2:
+                self.height = args[2]
+            if i == 3:
+                self.x = args[3]
+            if i == 4:
+                self.y = args[4]
