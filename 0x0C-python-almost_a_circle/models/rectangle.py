@@ -163,7 +163,7 @@ class Rectangle(Base):
             raise TypeError("{} must be an integer".format("y"))
         elif val < 0:
             raise ValueError ("{} must be >= 0".format("y"))
-        self.__x = val
+        self.__y = val
 
     def area(self):
         """
@@ -181,3 +181,46 @@ class Rectangle(Base):
             15
         """
         return (self.height * self.width)
+    
+    def display(self):
+        """
+        Display a visual representation of the rectangle using '#' characters.
+        
+        This method prints the rectangle to stdout using '#' characters.
+        The rectangle is drawn with the specified width and height, but
+        does not account for the x and y position offsets (prints at
+        console position 0, 0).
+        
+        Example:
+            >>> rect = Rectangle(3, 2)
+            >>> rect.display()
+            ###
+            ###
+        """
+        for i in range(self.height):
+            print("#" * self.width)
+
+    def __str__(self):
+        """
+        Return the string representation of the rectangle.
+        
+        This method defines how the rectangle object is represented as a
+        string when using str() or print() functions. It displays the
+        rectangle's ID, position coordinates, and dimensions in a formatted
+        string.
+        
+        Returns:
+            str: A formatted string showing the rectangle's ID, position (x/y),
+                 and dimensions (width/height) in the format:
+                 "[Rectangle] (id) x/y - width/height"
+        
+        Example:
+            >>> rect = Rectangle(5, 3, 2, 1, 10)
+            >>> str(rect)
+            '[Rectangle] (10) 2/1 - 5/3'
+            
+            >>> rect = Rectangle(4, 6)  # auto-assigned ID
+            >>> print(rect)
+            [Rectangle] (1) 0/0 - 4/6
+        """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
