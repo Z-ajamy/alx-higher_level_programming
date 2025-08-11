@@ -121,10 +121,10 @@ class Square(Rectangle):
                 if hasattr(self, key):
                     setattr(self, key, value)
         
-        def to_dictionary(self):
+    def to_dictionary(self):
             
-            """
-            Return the dictionary representation.
-            """
-            dic = {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
-            return dic
+        """
+        Return the  representation.
+        """
+        dic = {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
+        return dic
