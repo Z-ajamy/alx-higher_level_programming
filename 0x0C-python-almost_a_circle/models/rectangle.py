@@ -226,25 +226,42 @@ class Rectangle(Base):
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
     
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-            updateupdateupdateupdateupdateupdateupdateupdateupdateupdate
-            updateupdateupdateupdateupdateupdateupdateupdateupdateupdate
-
-            updateupdateupdateupdateupdateupdateupdateupdateupdateupdate
+        Return the string representation of the rectangle.
+        
+        This method defines how the rectangle object is represented as a
+        string when using str() or print() functions. It displays the
+        rectangle's ID, position coordinates, and dimensions in a formatted
+        string.
+        
+        Returns:
+            str: A formatted string showing the rectangle's ID, position (x/y),
+                 and dimensions (width/height) in the format:
+                 "[Rectangle] (id) x/y - width/height"
+        
+        Example:
+            >>> rect = Rectangle(5, 3, 2, 1, 10)
+            >>> str(rect)
+            '[Rectangle] (10) 2/1 - 5/3'
             
-            updateupdateupdateupdateupdateupdateupdateupdateupdateupdate
-            updateupdateupdateupdateupdateupdateupdateupdateupdateupdate
-
+            >>> rect = Rectangle(4, 6)  # auto-assigned ID
+            >>> print(rect)
+            [Rectangle] (1) 0/0 - 4/6
         """
-        for i in range(len(args)):
-            if i == 0:
-                self.id = args[0]
-            if i == 1:
-                self.width = args[1]
-            if i == 2:
-                self.height = args[2]
-            if i == 3:
-                self.x = args[3]
-            if i == 4:
-                self.y = args[4]
+        if args:
+            for i in range(len(args)):
+                if i == 0:
+                    self.id = args[0]
+                if i == 1:
+                    self.width = args[1]
+                if i == 2:
+                    self.height = args[2]
+                if i == 3:
+                    self.x = args[3]
+                if i == 4:
+                    self.y = args[4]
+        elif kwargs:
+            for i in kwargs:
+                if hasattr(self, i):
+                    setattr(self, i, kwargs[i])
