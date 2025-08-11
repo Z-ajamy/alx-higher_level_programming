@@ -72,35 +72,11 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """
-        Convert a list of dictionaries into a JSON string representation.
-
-        This static method is used to serialize object data into JSON format.
-        It ensures that the output is a valid JSON array string if the input
-        is a list of dictionaries. If the input is `None` or an empty list,
-        it returns `'[]'`.
+        """Return the JSON serialization of a list of dicts.
 
         Args:
-            list_dictionaries (list): A list of dictionaries to serialize.
-                Each dictionary should contain serializable values.
-                Example:
-                    [
-                        {"id": 1, "width": 10, "height": 7},
-                        {"id": 2, "width": 2, "height": 4}
-                    ]
-
-        Returns:
-            str: A JSON-formatted string representing `list_dictionaries`.
-
-        Examples:
-            >>> Base.to_json_string([{"id": 1}, {"id": 2}])
-            '[{"id": 1}, {"id": 2}]'
-
-            >>> Base.to_json_string([])
-            '[]'
-
-            >>> Base.to_json_string(None)
-            '[]'
+            list_dictionaries (list): A list of dictionaries.
         """
-        if list_dictionaries and isinstance(list_dictionaries, list):
-            return json.dumps(list_dictionaries)
+        if list_dictionaries is None or list_dictionaries == []:
+            return "[]"
+        return json.dumps(list_dictionaries)
