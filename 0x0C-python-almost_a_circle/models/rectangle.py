@@ -66,11 +66,19 @@ class Rectangle(Base):
     @width.setter
     def width(self, val):
         """
-        Set the width of the rectangle.
+        Set the width of the rectangle with validation.
         
         Args:
             val: The new width value for the rectangle.
+        
+        Raises:
+            TypeError: If val is not an integer.
+            ValueError: If val is less than or equal to 0.
         """
+        if not isinstance(val, int):
+            raise TypeError("{} must be an integer".format("width"))
+        elif val <= 0:
+            raise ValueError ("{} must be > 0".format("width"))
         self.__width = val
 
     @property
@@ -86,11 +94,19 @@ class Rectangle(Base):
     @height.setter
     def height(self, val):
         """
-        Set the height of the rectangle.
+        Set the height of the rectangle with validation.
         
         Args:
             val: The new height value for the rectangle.
+        
+        Raises:
+            TypeError: If val is not an integer.
+            ValueError: If val is less than or equal to 0.
         """
+        if not isinstance(val, int):
+            raise TypeError("{} must be an integer".format("height"))
+        elif val <= 0:
+            raise ValueError ("{} must be > 0".format("height"))
         self.__height = val
 
     @property
@@ -106,11 +122,19 @@ class Rectangle(Base):
     @x.setter
     def x(self, val):
         """
-        Set the x-coordinate position of the rectangle.
+        Set the x-coordinate position of the rectangle with validation.
         
         Args:
             val: The new x-coordinate value for the rectangle.
+        
+        Raises:
+            TypeError: If val is not an integer.
+            ValueError: If val is less than 0.
         """
+        if not isinstance(val, int):
+            raise TypeError("{} must be an integer".format("x"))
+        elif val < 0:
+            raise ValueError ("{} must be > 0".format("x"))
         self.__x = val
 
     @property
@@ -126,9 +150,17 @@ class Rectangle(Base):
     @y.setter
     def y(self, val):
         """
-        Set the y-coordinate position of the rectangle.
+        Set the y-coordinate position of the rectangle with validation.
         
         Args:
             val: The new y-coordinate value for the rectangle.
+        
+        Raises:
+            TypeError: If val is not an integer.
+            ValueError: If val is less than 0.
         """
-        self.__y = val
+        if not isinstance(val, int):
+            raise TypeError("{} must be an integer".format("y"))
+        elif val < 0:
+            raise ValueError ("{} must be > 0".format("y"))
+        self.__x = val
