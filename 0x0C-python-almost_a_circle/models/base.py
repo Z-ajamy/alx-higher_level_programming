@@ -1,63 +1,68 @@
 #!/usr/bin/python3
 import json
 """
-Module for Base class with automatic ID management.
+Module for Base class with automatic ID management and JSON serialization.
 
-This module provides a Base class that serves as a foundation for other classes
-with automatic ID assignment functionality. It maintains a class-level counter
-to ensure unique IDs are assigned when no specific ID is provided.
+This module defines the `Base` class, which serves as the foundation for
+other classes by providing:
+
+1. **Automatic ID assignment** — Instances are given unique IDs if none are
+   provided explicitly.
+2. **Basic JSON serialization** — Conversion of dictionaries into JSON strings
+   for storage or transmission.
+
+Classes:
+    Base: A base class with automatic ID management and static JSON serialization method.
 """
-
 
 class Base:
     """
-    A base class with automatic ID management functionality.
-    
-    This class provides automatic ID assignment for instances. When an ID
-    is not explicitly provided, it automatically assigns a unique ID based
-    on an internal counter. The counter is shared across all instances of
-    the class, ensuring unique IDs.
-    
+    A foundational class providing automatic ID management and JSON serialization.
+
+    The `Base` class is designed to be inherited by other classes that require
+    unique IDs and a mechanism to serialize data into JSON format. If no ID is
+    provided during instantiation, it generates one automatically by incrementing
+    a shared class counter.
+
     Attributes:
-        id (int): The instance ID. Either provided explicitly or auto-assigned.
-    
+        id (int): The unique identifier for the instance.
+
     Class Attributes:
-        __nb_objects (int): Private class attribute that tracks the number
-                           of objects created with auto-assigned IDs.
+        __nb_objects (int): Private counter tracking the number of instances
+            created without explicitly provided IDs.
     """
-    
+
     __nb_objects = 0
-    
+
     def __init__(self, id=None):
         """
-        Initialize a new Base instance with ID management.
-        
-        Creates a Base instance with either a provided ID or an automatically
-        assigned unique ID. If no ID is provided, the instance receives an
-        ID based on the current object counter, and the counter is incremented.
-        
+        Initialize a new `Base` instance with ID assignment logic.
+
+        If an `id` is provided, it is assigned directly to the instance.
+        If `id` is omitted or `None`, the class automatically assigns
+        the next available unique ID based on an internal counter.
+
         Args:
-            id (int, optional): A specific ID to assign to the instance.
-                               If None, an auto-generated unique ID will be used.
-                               Defaults to None.
-        
-        Note:
-            When id is provided (truthy), it is used directly without affecting
-            the internal counter. When id is None or falsy, a new unique ID
-            is generated and the internal counter is incremented.
-        
-        Example:
-            >>> obj1 = Base()
-            >>> print(obj1.id)  # 1
-            
-            >>> obj2 = Base()
-            >>> print(obj2.id)  # 2
-            
-            >>> obj3 = Base(10)
-            >>> print(obj3.id)  # 10
-            
-            >>> obj4 = Base()
-            >>> print(obj4.id)  # 3 (counter continues from where it left off)
+            id (int, optional): A specific ID for the instance. Defaults to `None`.
+                - If provided, it is assigned directly and does not affect the counter.
+                - If omitted, a unique auto-incremented ID is assigned.
+
+        Examples:
+            >>> b1 = Base()
+            >>> b1.id
+            1
+
+            >>> b2 = Base()
+            >>> b2.id
+            2
+
+            >>> b3 = Base(99)
+            >>> b3.id
+            99
+
+            >>> b4 = Base()
+            >>> b4.id
+            3
         """
         if id:
             self.id = id
@@ -65,38 +70,37 @@ class Base:
             self.id = Base.__nb_objects + 1
             Base.__nb_objects += 1
 
-
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-        Initialize a new Base instance with ID management.
-        
-        Creates a Base instance with either a provided ID or an automatically
-        assigned unique ID. If no ID is provided, the instance receives an
-        ID based on the current object counter, and the counter is incremented.
-        
+        Convert a list of dictionaries into a JSON string representation.
+
+        This static method is used to serialize object data into JSON format.
+        It ensures that the output is a valid JSON array string if the input
+        is a list of dictionaries. If the input is `None` or an empty list,
+        it returns `'[]'`.
+
         Args:
-            id (int, optional): A specific ID to assign to the instance.
-                               If None, an auto-generated unique ID will be used.
-                               Defaults to None.
-        
-        Note:
-            When id is provided (truthy), it is used directly without affecting
-            the internal counter. When id is None or falsy, a new unique ID
-            is generated and the internal counter is incremented.
-        
-        Example:
-            >>> obj1 = Base()
-            >>> print(obj1.id)  # 1
-            
-            >>> obj2 = Base()
-            >>> print(obj2.id)  # 2
-            
-            >>> obj3 = Base(10)
-            >>> print(obj3.id)  # 10
-            
-            >>> obj4 = Base()
-            >>> print(obj4.id)  # 3 (counter continues from where it left off)
+            list_dictionaries (list): A list of dictionaries to serialize.
+                Each dictionary should contain serializable values.
+                Example:
+                    [
+                        {"id": 1, "width": 10, "height": 7},
+                        {"id": 2, "width": 2, "height": 4}
+                    ]
+
+        Returns:
+            str: A JSON-formatted string representing `list_dictionaries`.
+
+        Examples:
+            >>> Base.to_json_string([{"id": 1}, {"id": 2}])
+            '[{"id": 1}, {"id": 2}]'
+
+            >>> Base.to_json_string([])
+            '[]'
+
+            >>> Base.to_json_string(None)
+            '[]'
         """
         if list_dictionaries and isinstance(list_dictionaries, list):
             return json.dumps(list_dictionaries)
