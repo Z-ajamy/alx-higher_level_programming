@@ -131,3 +131,36 @@ class Base:
                 obj = cls(1)
             obj.update(**dictionary)
         return obj
+
+
+    @classmethod
+    def load_from_file(cls):
+        """Load a list of instances from a JSON file.
+        
+        Reads a JSON file named after the class (e.g., "Rectangle.json") and
+        creates instances of the class from the data. Each dictionary in the
+        JSON file is converted to an instance using the create method.
+        
+        Returns:
+            list: A list of class instances created from the JSON file data.
+                Returns an empty list if the file doesn't exist or if the
+                file is empty.
+        
+        Note:
+            The filename is automatically determined as "{ClassName}.json".
+            If the file is not found, an empty list is returned instead of
+            raising an exception.
+        """
+        filename = cls.__name__ + ".json"
+        res = []
+        try:
+            with open(filename, "r") as f:
+                strlist = f.read()
+                listdict = cls.from_json_string(strlist)
+                for i in listdict:
+                    obj = cls.create(**i)
+                    res.append(obj)
+        except FileNotFoundError:
+            res = []
+        finally:
+            return res
