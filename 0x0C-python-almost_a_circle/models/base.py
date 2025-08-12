@@ -98,4 +98,6 @@ class Base:
         Raises:
             json.JSONDecodeError: If the input string is not valid JSON.
         """ 
+        if not json_string:
+            return []
         return json.loads(json_string)
