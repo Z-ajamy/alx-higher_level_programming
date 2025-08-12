@@ -80,3 +80,22 @@ class Base:
                 f.write(cls.to_json_string(list_1))
             else:
                 f.write(cls.to_json_string([]))
+
+    @staticmethod     
+    def from_json_string(json_string):
+        """Convert a JSON string to a list of dictionaries.
+        
+        Takes a JSON string representation and converts it back to a Python
+        list of dictionaries. This is the inverse operation of to_json_string.
+        
+        Args:
+            json_string (str): A valid JSON string to be converted to a list
+                of dictionaries.
+        
+        Returns:
+            list: A list of dictionaries parsed from the JSON string.
+        
+        Raises:
+            json.JSONDecodeError: If the input string is not valid JSON.
+        """ 
+        return json.loads(json_string)
