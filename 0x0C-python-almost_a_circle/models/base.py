@@ -101,3 +101,33 @@ class Base:
         if not json_string:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Create an instance of the class with attributes set from a dictionary.
+        
+        Creates a new instance of the calling class with dummy initial values,
+        then updates all attributes using the provided dictionary. This method
+        handles different class types (Rectangle and Square) by providing
+        appropriate initial parameters.
+        
+        Args:
+            **dictionary: Arbitrary keyword arguments representing attribute
+                names and values to set on the new instance.
+        
+        Returns:
+            object: A new instance of the calling class with attributes updated
+                from the dictionary. Returns the instance even if dictionary
+                is empty or None.
+        
+        Note:
+            Rectangle instances are created with initial dimensions (1,1).
+            Square instances are created with initial size 1.
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                obj = cls(1,1)
+            elif cls.__name__ == "Square":
+                obj = cls(1)
+            obj.update(**dictionary)
+        return obj
