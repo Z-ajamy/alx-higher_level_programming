@@ -96,6 +96,9 @@ case 9
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
+case 10
+======
+::
     >>> add_integer(float('nan'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
