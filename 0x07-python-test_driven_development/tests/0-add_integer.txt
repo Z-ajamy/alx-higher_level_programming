@@ -1,5 +1,59 @@
+======================================================
+Testing for add_integer function
+======================================================
+This document tests the ``add_integer`` function from ``add_integer.py``.
+
     >>> add_integer = __import__("0-add_integer").add_integer
+
+usage
+======
+the function adds two integers and return the result
+::
+
     >>> add_integer(5,6)
     11
     >>> add_integer(15,100)
     115
+
+
+case 1
+======
+2 floating point
+::
+    >>> add_integer(7.5, 2.5)
+    9
+
+case 2
+======
+1 floating point
+::
+    >>> add_integer(7, 2.5)
+    9
+
+
+case 3
+======
+1 str
+::
+    >>> add_integer(7, "2.5")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+
+
+case 4
+======
+2 str
+::
+    >>> add_integer("2.5", 7)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+
+case 5
+======
+2 str
+::
+    >>> add_integer("2.5", '7')
+    Traceback (most recent call last):
+    TypeError: a must be an integer
