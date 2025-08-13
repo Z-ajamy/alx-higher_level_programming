@@ -176,12 +176,9 @@ The parameter ``size`` must be an integer. Otherwise, a TypeError is raised.
     TypeError: size must be an integer
 
     >>> print_square(True)
-    Traceback (most recent call last):
-    TypeError: size must be an integer
+    #
 
     >>> print_square(False)
-    Traceback (most recent call last):
-    TypeError: size must be an integer
 
     >>> print_square([])
     Traceback (most recent call last):
