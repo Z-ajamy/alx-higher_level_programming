@@ -57,3 +57,20 @@ case 5
     >>> add_integer("2.5", '7')
     Traceback (most recent call last):
     TypeError: a must be an integer
+
+
+case 6
+======
+0 args
+::
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+
+case 7
+======
+1 arg
+::
+    >>> add_integer(5)
+    103
