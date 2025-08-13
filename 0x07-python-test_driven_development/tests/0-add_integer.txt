@@ -85,3 +85,9 @@ case 8
     >>> add_integer(None)
     Traceback (most recent call last):
     TypeError: a must be an integer
+
+case 9
+======
+::
+    >>> add_integer(float('inf'))
+    89
