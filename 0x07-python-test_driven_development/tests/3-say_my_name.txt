@@ -1,0 +1,297 @@
+==============================
+How to Use 3-say_my_name.py
+==============================
+
+This module defines a name-printing function ``say_my_name(first_name, last_name="")``.
+
+Usage
+=====
+
+``say_my_name(...)`` prints "My name is <first_name> <last_name>" to standard output.
+Both names are validated to ensure they are strings before printing.
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Basic Usage
+===========
+
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+First Name Only
+===============
+
+When only first_name is provided, last_name defaults to empty string.
+
+    >>> say_my_name("Alice")
+    My name is Alice 
+
+    >>> say_my_name("Charlie")
+    My name is Charlie 
+
+    >>> say_my_name("X")
+    My name is X 
+
+Both Names Provided
+==================
+
+    >>> say_my_name("Jane", "Doe")
+    My name is Jane Doe
+
+    >>> say_my_name("Mary", "Johnson")
+    My name is Mary Johnson
+
+    >>> say_my_name("David", "Brown")
+    My name is David Brown
+
+    >>> say_my_name("Sarah", "Wilson")
+    My name is Sarah Wilson
+
+Empty String Last Name
+=====================
+
+    >>> say_my_name("Mike", "")
+    My name is Mike 
+
+    >>> say_my_name("Lisa", "")
+    My name is Lisa 
+
+Special Characters in Names
+==========================
+
+    >>> say_my_name("Jean-Pierre", "Dupont")
+    My name is Jean-Pierre Dupont
+
+    >>> say_my_name("Mary-Ann", "O'Connor")
+    My name is Mary-Ann O'Connor
+
+    >>> say_my_name("José", "García")
+    My name is José García
+
+    >>> say_my_name("François", "Müller")
+    My name is François Müller
+
+    >>> say_my_name("李", "小明")
+    My name is 李 小明
+
+Names with Spaces
+================
+
+    >>> say_my_name("Mary Jane", "Watson")
+    My name is Mary Jane Watson
+
+    >>> say_my_name("John Paul", "Jones")
+    My name is John Paul Jones
+
+    >>> say_my_name("Anna Maria", "")
+    My name is Anna Maria 
+
+Single Character Names
+=====================
+
+    >>> say_my_name("A", "B")
+    My name is A B
+
+    >>> say_my_name("X", "Y")
+    My name is X Y
+
+    >>> say_my_name("Z")
+    My name is Z 
+
+Long Names
+==========
+
+    >>> say_my_name("Bartholomew", "Montgomery")
+    My name is Bartholomew Montgomery
+
+    >>> say_my_name("Alexander", "Richardson")
+    My name is Alexander Richardson
+
+    >>> say_my_name("Anastasia")
+    My name is Anastasia 
+
+Numbers and Special Characters
+=============================
+
+    >>> say_my_name("John123", "Doe456")
+    My name is John123 Doe456
+
+    >>> say_my_name("User@123", "Test!")
+    My name is User@123 Test!
+
+    >>> say_my_name("Hello_World", "Python3")
+    My name is Hello_World Python3
+
+Invalid First Name Types
+========================
+
+The first_name parameter must be a string. If it's not, a TypeError is raised.
+
+    >>> say_my_name(123, "Doe")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(None, "Smith")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(True, "Johnson")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(False, "Brown")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name([], "Wilson")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name({}, "Davis")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(12.5, "Miller")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(complex(1, 2), "Taylor")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name([1, 2, 3], "Anderson")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name({"name": "John"}, "Thomas")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name((1, 2), "Jackson")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Invalid Last Name Types
+=======================
+
+The last_name parameter must be a string. If it's not, a TypeError is raised.
+
+    >>> say_my_name("John", 123)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Jane", None)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Bob", True)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Alice", False)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Charlie", [])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("David", {})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Emma", 45.7)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Frank", complex(3, 4))
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Grace", [4, 5, 6])
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Henry", {"last": "Smith"})
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+    >>> say_my_name("Irene", (7, 8))
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Both Invalid Types
+==================
+
+    >>> say_my_name(123, 456)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(None, None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name([], {})
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+    >>> say_my_name(True, False)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Missing Arguments
+=================
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Too Many Arguments
+==================
+
+    >>> say_my_name("John", "Doe", "Extra")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> say_my_name("Jane", "Smith", "Wilson", "Brown")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 4 were given
+
+Edge Case Empty Strings
+=======================
+
+    >>> say_my_name("", "")
+    My name is  
+
+    >>> say_my_name("", "Doe")
+    My name is  Doe
+
+    >>> say_my_name("John", "")
+    My name is John 
+
+Whitespace Names
+===============
+
+    >>> say_my_name("  John  ", "  Doe  ")
+    My name is   John     Doe  
+
+Unicode and Special Characters
+=============================
+
+    >>> say_my_name("🙂", "😊")
+    My name is 🙂 😊
+
+    >>> say_my_name("Ñoño", "Peña")
+    My name is Ñoño Peña
+
+    >>> say_my_name("Åse", "Bjørk")
+    My name is Åse Bjørk
+
+    >>> say_my_name("Владимир", "Путин")
+    My name is Владимир Путин
