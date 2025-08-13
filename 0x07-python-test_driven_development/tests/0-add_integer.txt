@@ -2,7 +2,7 @@
 Testing for add_integer function
 ======================================================
 This document tests the ``add_integer`` function from ``add_integer.py``.
-
+::
     >>> add_integer = __import__("0-add_integer").add_integer
 
 usage
@@ -14,7 +14,10 @@ the function adds two integers and return the result
     11
     >>> add_integer(15,100)
     115
-
+    >>> add_integer(2.9, 0.2)
+    2
+    >>> add_integer(-2.9, -0.2)
+    -2
 
 case 1
 ======
@@ -22,6 +25,7 @@ case 1
 ::
     >>> add_integer(7.5, 2.5)
     9
+
 
 case 2
 ======
@@ -40,10 +44,9 @@ case 3
     TypeError: b must be an integer
 
 
-
 case 4
 ======
-2 str
+1 str
 ::
     >>> add_integer("2.5", 7)
     Traceback (most recent call last):
@@ -74,3 +77,11 @@ case 7
 ::
     >>> add_integer(5)
     103
+
+
+case 8
+======
+::
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
