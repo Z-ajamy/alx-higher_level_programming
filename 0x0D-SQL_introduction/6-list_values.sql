@@ -2,4 +2,4 @@
 -- Using fully qualified name (database.table) allows querying without switching databases
 -- The asterisk (*) wildcard retrieves all columns: id, name
 -- This will return every record stored in the table
-SELECT * FROM hbtn_0c_0.first_table;
+SELECT * FROM;
