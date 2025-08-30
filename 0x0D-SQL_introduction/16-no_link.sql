@@ -4,5 +4,4 @@
 SELECT score, name 
 FROM second_table 
 WHERE name != ""         -- Filter: exclude records with empty string names (but allows NULL)
-ORDER BY name,           -- Primary sort: alphabetical order by name (ASC is default)
-        score DESC;     -- Secondary sort: highest scores first within each name group
+ORDER BY score DESC;     -- Secondary sort: highest scores first within each name group
