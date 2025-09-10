@@ -1,0 +1,43 @@
+
+SHOW GRANTS FOR 'user_0d_1'@'localhost';
+SHOW GRANTS FOR 'user_0d_2'@'localhost';
+
+CREATE USER IF NOT EXISTS user_0d_1@localhost IDENTIFIED BY 'user_0d_1_pwd';
+GRANT ALL PRIVILEGES ON * . * TO user_0d_1@localhost;
+
+
+CREATE DATABASE IF NOT EXISTS hbtn_0d_2;
+
+CREATE USER IF NOT EXISTS user_0d_2@localhost IDENTIFIED BY 'user_0d_2_pwd';
+
+GRANT SELECT ON hbtn_0d_2.* TO user_0d_2@localhost;
+
+
+CREATE TABLE IF NOT EXISTS force_name (id INT, name VARCHAR(256) NOT NULL);
+
+
+CREATE TABLE IF NOT EXISTS id_not_null (id INT DEFAULT 1, name VARCHAR(256));
+
+
+CREATE TABLE IF NOT EXISTS unique_id (id INT DEFAULT 1 UNIQUE, name VARCHAR(256));
+
+
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
+
+USE hbtn_0d_usa;
+
+CREATE TABLE IF NOT EXISTS states (id INT UNIQUE NOT NULL AUTO_INCREMENT, name VARCHAR(256) NOT NULL, PRIMARY KEY(id));
+
+
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
+
+USE hbtn_0d_usa;
+
+CREATE TABLE IF NOT EXISTS cities (id INT UNIQUE AUTO_INCREMENT NOT NULL,
+state_id INT NOT NULL,
+name VARCHAR(256) NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY(state_id) REFERENCES states(id));g
+
+
+SELECT id, name FROM cities WHERE state_id = (SELECT id FROM states WHERE name = 'California') ORDER BY id ASC;
