@@ -62,8 +62,7 @@ if __name__ == "__main__":
         cursor = conn.cursor()
         
         # Execute parameterized SELECT query for exact state name match
-        # Uses %s placeholder and tuple parameter for SQL injection prevention
-        cursor.execute('SELECT * FROM states WHERE name = %s ORDER BY id', (argv[4],))
+        cursor.execute('SELECT * FROM states WHERE name = {} ORDER BY id'.format(argv[4]))
         
         # Fetch all rows matching the specified state name
         rows = cursor.fetchall()
