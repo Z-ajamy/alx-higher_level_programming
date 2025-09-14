@@ -84,6 +84,7 @@ if __name__ == "__main__":
         # Close cursor if it was successfully created
         if cursor:
             cursor.close()
+
         # Close database connection if it was successfully established
         if conn:
             conn.close()
