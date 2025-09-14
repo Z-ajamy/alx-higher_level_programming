@@ -79,6 +79,7 @@ if __name__ == "__main__":
     except MySQLdb.Error as e:
         # Handle any MySQL-related errors and print error message
         print(e)
+        
     finally:
         # Ensure proper cleanup of database resources
         # Close cursor if it was successfully created
