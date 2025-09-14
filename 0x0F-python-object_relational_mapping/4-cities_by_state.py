@@ -72,7 +72,8 @@ if __name__ == "__main__":
         # Execute JOIN query to retrieve city information with state names
         # Selects city ID, city name, and corresponding state name
         # Uses INNER JOIN on foreign key relationship (cities.state_id = states.id)
-        cursor.execute("SELECT cities.id, cities.name, states.name FROM cities JOIN states ON cities.state_id = states.id")
+        cursor.execute("SELECT cities.id, cities.name, states.name FROM" \
+        " cities JOIN states ON cities.state_id = states.id ORDER BY cities.id")
         
         # Fetch all rows from the JOIN query result
         rows = cursor.fetchall()
