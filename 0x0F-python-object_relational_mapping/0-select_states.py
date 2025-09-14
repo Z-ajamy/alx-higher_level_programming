@@ -28,6 +28,7 @@ Requirements:
 import MySQLdb
 import sys
 
+
 # Database configuration dictionary built from command-line arguments
 # Expected format: python script.py <username> <password> <database_name>
 DB_cfg = {'host':'localhost', 'user':sys.argv[1], 'passwd': sys.argv[2], 'db': sys.argv[3]}
