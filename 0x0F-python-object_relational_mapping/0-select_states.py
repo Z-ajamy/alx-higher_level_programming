@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""MySQL Database Connection and Query Utility Script.
+"""
+MySQL Database Connection and Query Utility Script.
 
 This module provides utility functions for connecting to a MySQL database
 and executing queries. It includes functions for creating connections,
