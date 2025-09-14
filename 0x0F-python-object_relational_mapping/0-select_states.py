@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import MySQLdb
+import sys
 """
 MySQL Database Connection and Query Utility Script.
 
@@ -22,9 +24,6 @@ Requirements:
     - MySQL database server
     - Appropriate database permissions for the specified user
 """
-
-import MySQLdb
-import sys
 
 # Database configuration dictionary built from command-line arguments
 # Expected format: python script.py <username> <password> <database_name>
