@@ -67,7 +67,7 @@ if __name__ == "__main__":
         
         # Execute SELECT query using string formatting to insert state name
         # The .format() method replaces {} with argv[4] within double quotes
-        cursor.execute('SELECT * FROM states WHERE name = "{}" ORDER BY id'.format(argv[4]))
+        cursor.execute('SELECT * FROM states WHERE name = BINARY "{}" ORDER BY id'.format(argv[4]))
 
         # Fetch all rows matching the specified state name
         rows = cursor.fetchall()
