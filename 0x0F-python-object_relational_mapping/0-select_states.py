@@ -25,8 +25,6 @@ def do_exe_query(conn, query, args=None):
     finally:
         c.close()
 
-
-
 def do_fetch_query(conn, query, args=None):
     res = None
     c = conn.cursor()
