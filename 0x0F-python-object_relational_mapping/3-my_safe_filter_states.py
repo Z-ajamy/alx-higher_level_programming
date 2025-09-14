@@ -63,7 +63,7 @@ if __name__ == "__main__":
         
         # Execute parameterized SELECT query for exact state name match
         # Uses %s placeholder and tuple parameter for SQL injection prevention
-        cursor.execute('SELECT * FROM states WHERE name = %s ORDER BY id', (argv[4],))
+        cursor.execute('SELECT * FROM states WHERE name = BINARY %s ORDER BY id', (argv[4],))
         
         # Fetch all rows matching the specified state name
         rows = cursor.fetchall()
