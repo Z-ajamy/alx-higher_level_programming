@@ -3,25 +3,21 @@
 
 This script connects to a MySQL database and retrieves records from the
 'states' table where the state name exactly matches a provided search term.
-It uses string formatting to construct the SQL query and demonstrates 
+It uses parameterized queries for safe SQL execution and demonstrates proper
 database connection handling with comprehensive error management.
 
 The script accepts a state name as the fourth command-line argument and
 returns all matching records ordered by ID.
 
 Example:
-    $ python3 script.py username password database_name California
-    $ python3 script.py username password database_name Texas
+    $ python3 script.py username password database_name "California"
+    $ python3 script.py username password database_name "Texas"
 
 Requirements:
     - MySQLdb module (MySQL-python)
     - MySQL database server running on localhost:3306
     - Database with a 'states' table containing 'id' and 'name' columns
     - Valid database credentials with SELECT permissions
-
-Security Note:
-    This script uses string formatting to construct SQL queries. For production
-    use, parameterized queries are recommended to prevent SQL injection attacks.
 """
 
 import MySQLdb
@@ -33,7 +29,7 @@ if __name__ == "__main__":
     This script performs the following operations:
     1. Parses command-line arguments for database connection and search term
     2. Establishes connection to MySQL database on localhost:3306
-    3. Executes SELECT query using string formatting for state name match
+    3. Executes parameterized SELECT query for exact state name match
     4. Orders results by ID and prints each matching row
     5. Ensures proper cleanup of database resources
     
@@ -48,9 +44,9 @@ if __name__ == "__main__":
         - 'id': Primary key or sortable identifier
         - 'name': State name column for exact matching
         
-    Query Construction:
-        Uses .format() method to insert the state name directly into the
-        SQL query string within double quotes for exact string matching.
+    Security Note:
+        Uses parameterized queries (%s placeholder) to prevent SQL injection
+        attacks. The search term is safely passed as a tuple parameter.
     """
     # Initialize connection and cursor variables for proper cleanup
     conn = None
@@ -65,10 +61,10 @@ if __name__ == "__main__":
         # Create cursor object for executing SQL queries
         cursor = conn.cursor()
         
-        # Execute SELECT query using string formatting to insert state name
-        # The .format() method replaces {} with argv[4] within double quotes
-        cursor.execute('SELECT * FROM states WHERE name = "{}" ORDER BY id'.format(argv[4]))
-
+        # Execute parameterized SELECT query for exact state name match
+        # Uses %s placeholder and tuple parameter for SQL injection prevention
+        cursor.execute('SELECT * FROM states WHERE name = %s ORDER BY id', (argv[4],))
+        
         # Fetch all rows matching the specified state name
         rows = cursor.fetchall()
         
