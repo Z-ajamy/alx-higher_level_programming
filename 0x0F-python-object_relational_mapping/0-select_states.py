@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
+"""  lists all states from the database hbtn_0e_0_usa """
+
 """
 MySQL Database Connection and Query Utility Script.
 
@@ -24,6 +24,9 @@ Requirements:
     - MySQL database server
     - Appropriate database permissions for the specified user
 """
+
+import MySQLdb
+import sys
 
 # Database configuration dictionary built from command-line arguments
 # Expected format: python script.py <username> <password> <database_name>
