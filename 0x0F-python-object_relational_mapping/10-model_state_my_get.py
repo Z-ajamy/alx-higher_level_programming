@@ -38,7 +38,6 @@ if __name__ == '__main__':
     # Instantiate a session for interacting with the database.
     s = Sess()
 
-
     # Query for the first state whose name matches the provided argument (argv[4]).
     # `.first()` ensures that only one result (the first match) is retrieved.
     row1 = s.query(State).where(State.name == '{}'.format(argv[4])).first()
