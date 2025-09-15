@@ -37,7 +37,7 @@ Database Schema:
 """
 
 from sqlalchemy import create_engine, Column, INTEGER, String
-from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy.orm import declarative_base
 
 # Create declarative base class for ORM model definitions
 # All ORM model classes will inherit from this base
