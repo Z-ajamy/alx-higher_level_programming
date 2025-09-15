@@ -19,7 +19,6 @@ from sqlalchemy.orm import sessionmaker
 from sys import argv
 
 
-
 if __name__ == '__main__':
     # Create a database engine bound to the given MySQL database credentials.
     # The connection string uses the format:
