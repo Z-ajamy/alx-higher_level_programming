@@ -46,7 +46,7 @@ if __name__ == '__main__':
     The script uses SQLAlchemy's first() method which returns the first
     matching record or None if no records exist. The conditional check
     ensures appropriate output for both scenarios.
-    
+
     Error Handling:
         - If states table is empty: prints "Nothing"
         - If states exist: prints formatted "ID: StateName"
