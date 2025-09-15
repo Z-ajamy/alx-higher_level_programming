@@ -63,3 +63,4 @@ if __name__ == '__main__':
     for row in rows:
         # Format output as "ID: StateName" using row object attributes
         print('{}: {}'.format(row.id, row.name))
+
