@@ -1,86 +1,58 @@
 #!/usr/bin/python3
-"""SQLAlchemy ORM Model Definition for States Table.
+"""SQLAlchemy ORM model for representing US states.
 
-This module defines a SQLAlchemy ORM model for the 'states' table using
-declarative base pattern. It provides object-relational mapping capabilities
-for database operations on state records.
+This module defines the State model class using SQLAlchemy's declarative base
+approach. The State model represents individual US states in the database and
+establishes a one-to-many relationship with cities.
 
-The State model includes basic state information with proper column constraints
-and data types, following SQLAlchemy best practices for model definition.
+The model includes:
+    - Primary key identifier
+    - State name with string constraints
+    - Bidirectional relationship with City objects
+    - Cascade deletion for associated cities
 
-Example Usage:
+Dependencies:
+    - SQLAlchemy ORM framework
+    - Related City model (circular import relationship)
+
+Typical usage example:
+    from model_state import Base, State
     from sqlalchemy import create_engine
-    from sqlalchemy.orm import sessionmaker
     
-    # Create engine and session
-    engine = create_engine('mysql://user:pass@localhost/dbname')
+    engine = create_engine('sqlite:///example.db')
     Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    
-    # Create a new state
-    new_state = State(name='California')
-    session.add(new_state)
-    session.commit()
-    
-    # Query states
-    states = session.query(State).all()
-
-Requirements:
-    - sqlalchemy package
-    - Compatible database driver (e.g., PyMySQL, mysqlclient)
-
-Database Schema:
-    The State model maps to a 'states' table with the following structure:
-    - id: Primary key integer column (auto-incrementing)
-    - name: State name string column (max 128 characters, required)
 """
+from sqlalchemy import Column, INTEGER, String
+from sqlalchemy.orm import declarative_base, relationship 
 
-from sqlalchemy import create_engine, Column, INTEGER, String
-from sqlalchemy.orm import declarative_base
-
-# Create declarative base class for ORM model definitions
-# All ORM model classes will inherit from this base
 Base = declarative_base()
 
 
 class State(Base):
-    """SQLAlchemy ORM model for the states table.
+    """SQLAlchemy model representing a US state.
     
-    This class defines the structure and constraints for state records
-    in the database. It uses SQLAlchemy's declarative base pattern to
-    map Python class attributes to database table columns.
+    This class defines the database table structure and relationships for
+    storing US state information. Each state can have multiple associated
+    cities through a one-to-many relationship.
     
     Attributes:
-        __tablename__ (str): Database table name ('states')
-        id (Column): Primary key integer column for unique state identification
-        name (Column): State name string column with 128 character limit
-        
-    Table Structure:
-        CREATE TABLE states (
-            id INTEGER PRIMARY KEY NOT NULL,
-            name VARCHAR(128) NOT NULL
-        );
-        
-    Column Details:
-        - id: Integer primary key, auto-incrementing, cannot be null
-        - name: Variable character string up to 128 characters, cannot be null
-        
-    Usage Examples:
-        # Create a new state instance
-        state = State(name='Texas')
-        
-        # Access state attributes
-        print(state.id)    # Primary key (set after database insert)
-        print(state.name)  # State name string
-    """
-    # Specify the database table name that this model maps to
-    __tablename__ = 'states'
+        id (int): Primary key identifier for the state record.
+        name (str): The name of the state, limited to 128 characters.
+        cities (relationship): Collection of City objects associated with this state.
+            Supports bidirectional access and automatic cascade deletion.
     
-    # Define primary key column: auto-incrementing integer ID
-    # Column parameters: name, data type, primary key flag, nullable constraint
+    Database Table:
+        Table name: 'states'
+        Relationships: One-to-many with 'cities' table
+        
+    Example:
+        state = State(name="California")
+        session.add(state)
+        session.commit()
+    """
+    __tablename__ = 'states'
     id = Column('id', INTEGER, primary_key=True, nullable=False)
     
-    # Define state name column: string with maximum length of 128 characters
-    # Column parameters: name, data type with length constraint, nullable constraint
     name = Column('name', String(128), nullable=False)
+
+    cities = relationship("City", back_populates="state", cascade="all, delete-orphan")
