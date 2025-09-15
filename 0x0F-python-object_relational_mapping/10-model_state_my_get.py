@@ -4,7 +4,8 @@
 This script connects to a MySQL database using SQLAlchemy ORM, creates the
 necessary schema (if it does not already exist), and queries the `states`
 table for the first state whose name matches the provided argument.
-The state's ID is then printed to stdout.
+If a state is found, its ID is printed to stdout; otherwise, "Not found"
+is displayed.
 
 Usage:
     ./script_name.py <mysql_username> <mysql_password> <database_name> <state_name>
@@ -45,5 +46,8 @@ if __name__ == '__main__':
     # Close the session to free resources.
     s.close()
 
-    # Print the ID of the matched state. Assumes that a result exists.
-    print('{}'.format(row1.id))
+    # Print the ID of the matched state if it exists, otherwise print "Not found".
+    if row1:
+        print('{}'.format(row1.id))
+    else:
+        print('Not found')
