@@ -2,7 +2,6 @@
 
 """
 HTTP request script to retrieve and display X-Request-Id header.
-
 This module sends an HTTP request to a URL provided as a command-line argument
 and attempts to extract and display the X-Request-Id header from the response.
 The X-Request-Id header is commonly used for request tracking and debugging in
