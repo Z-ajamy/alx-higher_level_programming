@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 HTTP request script to retrieve and display X-Request-Id header.
 This module sends an HTTP request to a URL provided as a command-line argument
