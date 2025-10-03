@@ -14,5 +14,5 @@ if argv[1]:
 
             if responseID:
                 print(responseID)
-    except urllib.error.URLError as e:
+    except Exception as e:
         pass
