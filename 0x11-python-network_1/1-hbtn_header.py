@@ -1,24 +1,8 @@
 #!/usr/bin/python3
-"""
-HTTP request script to retrieve and display X-Request-Id header.
-This module sends an HTTP request to a URL provided as a command-line argument
-and attempts to extract and display the X-Request-Id header from the response.
-The X-Request-Id header is commonly used for request tracking and debugging in
-web services.
-
-The script expects one command-line argument:
-    - URL to send the HTTP request to
-
-Dependencies:
-    - urllib.request for HTTP operations
-    - sys for command-line argument access
-
-Typical usage example:
-    $ python3 script.py https://api.example.com/endpoint
-
-Note:
-    The script silently handles URLError exceptions without output.
-    If the X-Request-Id header is not present, no output is produced.
+"""A script that:
+- takes in a URL,
+- sends a request to the URL and displays the value
+- of the X-Request-Id variable found in the header ofthe response.
 """
 from sys import argv
 import urllib.request
