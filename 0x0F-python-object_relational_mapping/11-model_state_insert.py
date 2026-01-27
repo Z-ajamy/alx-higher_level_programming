@@ -20,6 +20,7 @@ from sys import argv
 
 
 if __name__ == '__main__':
+    s = None
     try:
         # Create a database engine bound to the given MySQL database credentials.
         # The connection string uses the format:
@@ -54,4 +55,5 @@ if __name__ == '__main__':
     finally:
         # Ensure the session is closed to free resources,
         # even if an error occurs during execution.
-        s.close()
+        if s:
+            s.close()
