@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-args = process.argv.slice(2);
+const args = process.argv.slice(2);
 
 if(args.length === 0) {
     console.log("Missing size");
