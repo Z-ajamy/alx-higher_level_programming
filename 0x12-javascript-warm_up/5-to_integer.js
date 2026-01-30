@@ -1,6 +1,11 @@
-#!/usr/bin/node
-if (+process.argv[2] * +process.argv[2] + 1) {
-  console.log(`My number: ${+process.argv[2]}`);
-} else {
-  console.log('Not a number');
+#!/usr/bin/env node
+
+
+args = process.argv.slice(2);
+const x = Number(args[0])
+if(isNaN(x)) {
+  console.log("Not a number");
+  return;
 }
+
+console.log("My number: " + args[0]);
