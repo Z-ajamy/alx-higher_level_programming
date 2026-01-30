@@ -1,4 +1,5 @@
-#!/usr/bin/node
-const a = process.argv[2];
-const b = process.argv[3];
-console.log(a + ' is ' + b);
+#!/usr/bin/env node
+
+const is = " is ";
+args = process.argv.slice(2);
+console.log(args[0] + is + args[1]);
