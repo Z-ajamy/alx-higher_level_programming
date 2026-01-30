@@ -5,7 +5,7 @@ const args = process.argv.slice(2);
 
 if(args.length === 0) {
   console.log(NaN);
-  return;
+  process.exit();
 }
 
 function factorial(x) {
