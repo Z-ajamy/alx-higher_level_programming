@@ -1,9 +1,12 @@
-#!/usr/bin/node
-const x = +process.argv[2];
-if (x) {
-  for (let i = 0; i < x; i++) {
-    console.log('C is fun');
-  }
-} else {
-  console.log('Missing number of occurrences');
+#!/usr/bin/env node
+
+args = process.argv.slice(2);
+
+if(args.length === 0) {
+    console.log("Missing number of occurrences");
+    return;
+}
+
+for (let i = 0; i < Number(args[0]); i++) {
+  console.log("C is fun");
 }

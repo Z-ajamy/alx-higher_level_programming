@@ -1,13 +1,13 @@
-#!/usr/bin/node
-const x = +process.argv[2];
-if (x) {
-  let str = 'X';
-  for (let i = 1; i < x; i++) {
-    str += 'X';
-  }
-  for (let i = 0; i < x; i++) {
-    console.log(str);
-  }
-} else {
-  console.log('Missing size');
+#!/usr/bin/env node
+
+args = process.argv.slice(2);
+
+if(args.length === 0) {
+    console.log("Missing size");
+    return;
+}
+
+const size = Number(args[0]);
+for (let i = 0; i < size; i++) {
+  console.log("X".repeat(size));
 }
