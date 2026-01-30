@@ -1,7 +1,11 @@
-#!/usr/bin/node
-function add (a, b) {
-  console.log(a + b);
+#!/usr/bin/env node
+
+
+args = process.argv.slice(2);
+
+if(args.length === 0 || args.length === 1) {
+  console.log(NaN);
+  return;
 }
-const a = +process.argv[2];
-const b = +process.argv[3];
-add(a, b);
+
+console.log(Number(args[0]) + Number(args[1]));

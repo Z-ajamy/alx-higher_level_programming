@@ -1,14 +1,16 @@
-#!/usr/bin/node
-function factorial (a) {
-  let res = 1;
-  for (let i = 1; i <= a; i++) {
-    res *= i;
-  }
-  console.log(res);
+#!/usr/bin/env node
+
+
+args = process.argv.slice(2);
+
+if(args.length === 0) {
+  console.log(NaN);
+  return;
 }
 
-let x = +process.argv[2];
-if (!x) {
-  x = 1;
+function factorial(x) {
+  if (x === 1 || x === 0) return 1;
+  return x * factorial(x - 1)
 }
-factorial(x);
+
+console.log(factorial(args[0]));
