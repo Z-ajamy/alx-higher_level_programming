@@ -1,8 +1,11 @@
-#!/usr/bin/node
+#!/usr/bin/evv node
+
 exports.esrever = function (list) {
-  const l = [];
-  for (const i of list) {
-    l.unshift(i);
+  const arr = [];
+  let maxIndex = list.length - 1;
+  for (let i = 0; i < list.length; i++) {
+    arr[maxIndex] = list[i];
+    maxIndex -= 1;
   }
-  return l;
+  return arr;
 };
