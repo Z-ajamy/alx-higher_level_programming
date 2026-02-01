@@ -1,34 +1,33 @@
-#!/usr/bin/node
+#!/usr/bin/env node
+
 class Rectangle {
   constructor (w, h) {
-    if (!(w === 0 || h === 0 || w <= 0 || h <= 0|| isNaN(h * w))) {
+    if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
     }
   }
 
   print () {
-    let shap = '';
     for (let i = 0; i < this.height; i++) {
+      let x = '';
       for (let j = 0; j < this.width; j++) {
-        shap += 'X';
+        x += 'X';
       }
-      if (i < this.height - 1) {
-        shap += '\n';
-      }
+      console.log(x);
     }
-    console.log(shap);
   }
 
   rotate () {
-    const temp = this.height;
+    const x = this.height;
     this.height = this.width;
-    this.width = temp;
+    this.width = x;
   }
 
   double () {
-    this.height *= 2;
-    this.width *= 2;
+    this.height = this.height * 2;
+    this.width = this.width * 2;
   }
 }
+
 module.exports = Rectangle;

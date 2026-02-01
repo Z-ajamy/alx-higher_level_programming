@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 const Rectangle = require('./4-rectangle');
 
 const r1 = new Rectangle(2, 3);
