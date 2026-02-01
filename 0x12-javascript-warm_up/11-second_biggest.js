@@ -2,14 +2,11 @@
 
 const args = process.argv.slice(2);
 
+if (args.length <= 1) {
+  console.log(0);
+} else {
+  const list = args.map(Number);
 
-try{
-    args.map(Number);
-}catch(e){
-    if(e instanceof TypeError){
-        console.log(e);
-        exit;
-    }
+  list.sort((a, b) => b - a);
+  console.log(list[1]);
 }
-
-console.log(args.sort(function (a, b) {return b - a})[1]);
