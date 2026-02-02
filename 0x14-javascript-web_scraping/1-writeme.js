@@ -7,7 +7,7 @@ const content = process.argv[3];
 function callback (err) {
     if (err) {
         console.log(err);
-        return;
+        return null;
     }
 }
 
